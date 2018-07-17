@@ -13,8 +13,8 @@ ExportedObj/
 .consulo/
 *.csproj
 *.unityproj
-*.sln
-*.suo
+# *.sln
+# *.suo
 *.tmp
 *.user
 *.userprefs
@@ -22,6 +22,12 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
+*.ipch
+*.opensdf
+*.sdf
+*.tlog
+*.log
+*.idb
 *.opendb
 
 # Unity3D generated meta files
