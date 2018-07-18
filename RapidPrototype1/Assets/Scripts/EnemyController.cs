@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
-    public float lookRadius = 10.0f;
+    public float lookRadius = 50.0f;
 
     Transform target;
 
