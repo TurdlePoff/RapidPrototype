@@ -7,14 +7,11 @@ public class StadingSideBySide : MonoBehaviour
 	public float ManaGainAmount = 1.0f;
 	public Mana manaScript;
 
-	void OnAwake()
+	void Start()
 	{
-		GameObject playerHolder = GameObject.FindWithTag ("PlayerHolder");
-		if (playerHolder != null) {
-			manaScript = playerHolder.GetComponent<Mana> ();
-		} else {
-			manaScript = null;
-			Debug.Log ("Can't find Mana Script");
+		manaScript = GetComponentInParent<Mana> ();
+		if (null == manaScript) {
+			Debug.Log ("Can't find mana script");
 		}
 	}
 
@@ -24,6 +21,9 @@ public class StadingSideBySide : MonoBehaviour
 		{
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
+				Debug.Log ("ManaIncrease");
+			} else {
+				Debug.Log ("Mana Null");
 			}
 		}
 	}
