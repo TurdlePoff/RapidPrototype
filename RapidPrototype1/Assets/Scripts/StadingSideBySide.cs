@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StadingSideBySide : MonoBehaviour 
 {
-	/*public float ManaGainAmount = 1.0f;
+	public float ManaGainAmount = 1.0f;
 	public Mana manaScript;
 
 	void OnAwake()
@@ -20,13 +20,11 @@ public class StadingSideBySide : MonoBehaviour
 
 	void OnTriggerStay(Collider other)
 	{
-		if (other.gameObject = PlayerPrefs) 
+		if (other.tag == "Player") 
 		{
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
 			}
 		}
-	}*/
-	//
-	//
+	}
 }
