@@ -38,10 +38,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            //if (!m_Jump)
-            //{
-            //    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            //}
+            if (!m_Jump)
+            {
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            }
 
             if (Input.GetKeyDown(KeyCode.LeftControl))
             { 
@@ -52,6 +52,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Fire()
         {
             // Create the Bullet from the Bullet Prefab
+            
+
+
             var bullet = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
