@@ -13,7 +13,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        
+        //Public variables
+        public GameObject bulletPrefab;
+        public Transform bulletSpawn;
+
         private void Start()
         {
             // get the transform of the main camera
@@ -39,6 +42,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            { 
+                Fire();
+            }
+        }
+        
+        void Fire()
+        {
+            // Create the Bullet from the Bullet Prefab
+            var bullet = (GameObject)Instantiate(
+                bulletPrefab,
+                bulletSpawn.position,
+                bulletSpawn.rotation);
+
+            // Add velocity to the bullet
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+
+            // Destroy the bullet after 2 seconds
+            Destroy(bullet, 2.0f);
         }
 
 
