@@ -35,7 +35,13 @@ public class Mana : MonoBehaviour
 		SetHealthUI ();
 	}
 
-	private void SetHealthUI()
+    public void UseMana()
+    {
+        m_CurrentHealth -= 10.0f;
+        SetHealthUI();
+    }
+
+    private void SetHealthUI()
 	{
 		m_Slider.value = m_CurrentHealth;
 	}
