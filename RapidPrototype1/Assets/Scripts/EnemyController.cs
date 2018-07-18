@@ -6,21 +6,19 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour {
 
     public float lookRadius = 10.0f;
-    Transform target;
-    NavMeshAgent agent;
 
-    int playertoTarget = 0;
+    Transform target;
+
+    NavMeshAgent agent;
+    
 
     // Use this for initialization
     void Start() {
 
         //playertoTarget = Random.Range(0, 1);
-        //target[0] = PlayerManager.instance.player1.transform;
+        var possibleTargets = GameObject.FindGameObjectsWithTag("Player");
 
-        target = PlayerManager.instance.player1.transform;
-        //target[1] = PlayerManager.instance.player2.transform;
-
-
+        target = possibleTargets[Random.Range(0, 2)].transform;
 
         agent = GetComponent<NavMeshAgent>();
     }
