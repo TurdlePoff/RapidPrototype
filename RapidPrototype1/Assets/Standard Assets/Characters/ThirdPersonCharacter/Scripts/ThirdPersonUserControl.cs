@@ -52,10 +52,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Fire()
         {
             // Create the Bullet from the Bullet Prefab
+            
+
+
             var bullet = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
                 bulletSpawn.rotation);
+
+            //bullet.transform.position += m_Character.transform.position;
 
             // Add velocity to the bullet
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
