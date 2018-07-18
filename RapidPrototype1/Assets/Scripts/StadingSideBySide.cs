@@ -7,6 +7,8 @@ public class StadingSideBySide : MonoBehaviour
 	public float ManaGainAmount = 1.0f;
 	public Mana manaScript;
 
+	private int nextUpdate = 1;
+
 	void Start()
 	{
 		manaScript = GetComponentInParent<Mana> ();
@@ -17,7 +19,7 @@ public class StadingSideBySide : MonoBehaviour
 
 	void OnTriggerStay(Collider other)
 	{
-		if (other.tag == "Player") 
+		if (other.tag == "Player" && (Time.time >= nextUpdate)) 
 		{
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
@@ -25,6 +27,8 @@ public class StadingSideBySide : MonoBehaviour
 			} else {
 				Debug.Log ("Mana Null");
 			}
+
+			nextUpdate = Mathf.FloorToInt (Time.time) + 1;
 		}
 	}
 }
