@@ -97,21 +97,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentRadius: 1
+    agentHeight: 2.4
+    agentSlope: 30.4
+    agentClimb: 2.3
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 19d671c6ce041bd44a5407970b2ef9a6, type: 2}
 --- !u!1 &8320882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401975283}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6618,15 +6618,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: f5f28d7d7613936459331c670fffd8af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15727629
+      value: 37.5
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f5f28d7d7613936459331c670fffd8af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f5f28d7d7613936459331c670fffd8af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52.6
+      value: -114.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f5f28d7d7613936459331c670fffd8af, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7074,7 +7074,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540832296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 574, y: 324, z: 0}
+=======
+  m_LocalPosition: {x: 567.5, y: 130, z: 0}
+>>>>>>> 768fc8fc032fc9570c77a43a868fa11eb9ec839b
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 616661443}
