@@ -1,32 +1,15 @@
 fileFormatVersion: 2
-guid: 9af3a125f51299146b60a0d6e0d2e4a8
-timeCreated: 1531974596
+guid: 3135c6ade88cde84fa8a2460d6daf123
+timeCreated: 1531996893
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: pSphere1
-    100002: Tree 1
-    100004: Tree2
-    100006: Tree3
-    100008: //RootNode
-    400000: pSphere1
-    400002: Tree 1
-    400004: Tree2
-    400006: Tree3
-    400008: //RootNode
-    2300000: pSphere1
-    2300002: Tree 1
-    2300004: Tree2
-    2300006: Tree3
-    3300000: pSphere1
-    3300002: Tree 1
-    3300004: Tree2
-    3300006: Tree3
-    4300000: Tree
-    4300002: Tree2
-    4300004: Tree3
-    4300006: pSphere1
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pSphere1
     9500000: //RootNode
   externalObjects:
   - first:
