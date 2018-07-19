@@ -6,12 +6,16 @@ public class StadingSideBySide : MonoBehaviour
 {
 	public float ManaGainAmount = 1.0f;
 	public Mana manaScript;
+    private ParticleSystem em;
+    private GameObject ps;
 
-	private int nextUpdate = 1;
+    private int nextUpdate = 1;
 
 	void Start()
 	{
-		manaScript = GetComponentInParent<Mana> ();
+        ps = GameObject.Find("ps");
+        em = ps.GetComponent<ParticleSystem>();
+        manaScript = GetComponentInParent<Mana> ();
 		if (null == manaScript) {
 			Debug.Log ("Can't find mana script");
 		}
@@ -24,11 +28,21 @@ public class StadingSideBySide : MonoBehaviour
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
 				Debug.Log ("ManaIncrease");
-			} else {
+                em.Play();
+
+            }
+            else {
 				Debug.Log ("Mana Null");
 			}
 
 			nextUpdate = Mathf.FloorToInt (Time.time) + 1;
 		}
-	}
+
+    }
+
+    void OnTriggerExit()
+    {
+        //var emission = em.emission;
+        //emission.enabled = false;
+    }
 }
