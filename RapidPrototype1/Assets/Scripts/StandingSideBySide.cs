@@ -31,8 +31,8 @@ public class StandingSideBySide : MonoBehaviour
         if(!isTogether && (Time.time >= nextUpdate))
         {
             manaScript.LoseMana();
-            Debug.Log("ManaDecrease");
-            nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            Debug.Log("Mana Decrease");
+            nextUpdate = Mathf.FloorToInt (Time.time) + 1;
         }
     }
 
@@ -40,6 +40,7 @@ public class StandingSideBySide : MonoBehaviour
 	{
 		if (other.tag == "Player" && (Time.time >= nextUpdate)) 
 		{
+            //One issue = BOTH players gain and lose mana when function is triggered
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
 				Debug.Log ("ManaIncrease");
