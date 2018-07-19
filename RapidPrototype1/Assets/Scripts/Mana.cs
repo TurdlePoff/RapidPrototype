@@ -35,6 +35,12 @@ public class Mana : MonoBehaviour
 		SetHealthUI ();
 	}
 
+    public void LoseMana()
+    {
+        m_CurrentHealth -= 1.0f;
+        SetHealthUI();
+    }
+
     public void UseMana()
     {
         m_CurrentHealth -= 10.0f;
