@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 199726023170167140}
   m_Layer: 0
   m_Name: ps2
-  m_TagString: Untagged
+  m_TagString: PS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.27117148, g: 0.2564338, b: 0.6838235, a: 0.616}
+      maxColor: {r: 0.46570754, g: 0.2564338, b: 0.6838235, a: 0.616}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

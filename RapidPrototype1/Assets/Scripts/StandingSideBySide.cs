@@ -9,7 +9,9 @@ public class StandingSideBySide : MonoBehaviour
 
     private GameObject[] particleSystems;
     public float ManaGainAmount = 1.0f;
-	private Mana manaScript;
+    public float ManaLoseAmount = 1.0f;
+
+    private Mana manaScript;
     private bool isTogether = false;
 
 	private int nextUpdate = 1;
@@ -30,20 +32,22 @@ public class StandingSideBySide : MonoBehaviour
     {
         if(!isTogether && (Time.time >= nextUpdate))
         {
-            manaScript.LoseMana();
-            Debug.Log("Mana Decrease");
+            manaScript.LoseMana(ManaLoseAmount);
+            Debug.Log("Mana Decrease: " + manaScript.GetMana());
             nextUpdate = Mathf.FloorToInt (Time.time) + 1;
         }
     }
 
 	void OnTriggerStay(Collider other)
 	{
-		if (other.tag == "Player" && (Time.time >= nextUpdate)) 
+        //if(other.gameObject.name == "Player2")
+
+		if (other.gameObject.name == "Player2" && (Time.time >= nextUpdate)) 
 		{
             //One issue = BOTH players gain and lose mana when function is triggered
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
-				Debug.Log ("ManaIncrease");
+				Debug.Log ("Mana Increase" + manaScript.GetMana());
                 isTogether = true;
                 em.Play();
                 em2.Play();
@@ -53,6 +57,11 @@ public class StandingSideBySide : MonoBehaviour
 
 			nextUpdate = Mathf.FloorToInt (Time.time) + 1;
 		}
+
+        if (other.gameObject.name == "Player1" || other.gameObject.name == "Player2")
+        {
+            isTogether = true;
+        }
 	}
 
     void OnTriggerExit()
