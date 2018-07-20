@@ -6,11 +6,16 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour {
 
     public float lookRadius = 50.0f;
+    public float startingHealth = 20.0f;
+    public float damage = 5.0f;
 
     Transform target;
 
     NavMeshAgent agent;
-    
+
+    private Mana manaScript;
+    private float currentHealth;
+
 
     // Use this for initialization
     void Start() {
@@ -21,6 +26,15 @@ public class EnemyController : MonoBehaviour {
         target = possibleTargets[Random.Range(0, 2)].transform;
 
         agent = GetComponent<NavMeshAgent>();
+        
+        GameObject parentOfPlayers = GameObject.FindGameObjectWithTag("PlayerHolder");
+        manaScript = parentOfPlayers.GetComponent<Mana>();
+        if (null == manaScript)
+        {
+            Debug.Log("Can't find mana script");
+        }
+
+        currentHealth = startingHealth;
     }
 
     // Update is called once per frame
@@ -50,5 +64,28 @@ public class EnemyController : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            manaScript.LoseMana(damage);
+        }
+        else if(other.tag == "Bullet")
+        {
+            TakeDamage();
+        }
+    }
+
+    private void TakeDamage()
+    {
+        currentHealth -= 5;
+
+        Debug.Log("Enemy health: " + currentHealth);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

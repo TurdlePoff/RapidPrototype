@@ -2,35 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandingSideBySide : MonoBehaviour 
+public class StandingSideBySide : MonoBehaviour
 {
-    private ParticleSystem em;
-    private ParticleSystem em2;
-
-    private GameObject[] particleSystems;
     public float ManaGainAmount = 1.0f;
     public float ManaLoseAmount = 1.0f;
+    public int nextUpdate = 1;
+    public int standingCooldown = 1;
 
+    private ParticleSystem em;
+    private ParticleSystem em2;
+    private GameObject[] particleSystems;
     private Mana manaScript;
     private bool isTogether = false;
 
-	private int nextUpdate = 1;
 
 	void Start()
 	{
         particleSystems = GameObject.FindGameObjectsWithTag("PS");
         em = particleSystems[0].GetComponent<ParticleSystem>();
         em2 = particleSystems[1].GetComponent<ParticleSystem>();
-
-        manaScript = GetComponentInParent<Mana> ();
-		if (null == manaScript) {
-			Debug.Log ("Can't find mana script");
-		}
 	}
 
     void Update()
     {
-        if(!isTogether && (Time.time >= nextUpdate))
+        if(!isTogether && (Time.time >= nextUpdate) && (Time.time >= standingCooldown))
         {
             manaScript.LoseMana(ManaLoseAmount);
             Debug.Log("Mana Decrease: " + manaScript.GetMana());
@@ -61,6 +56,7 @@ public class StandingSideBySide : MonoBehaviour
         if (other.gameObject.name == "Player1" || other.gameObject.name == "Player2")
         {
             isTogether = true;
+            standingCooldown = Mathf.FloorToInt(Time.time) + 5;
         }
 	}
 

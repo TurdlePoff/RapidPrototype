@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHolder
   - PS
+  - Bullet
   layers:
   - Default
   - TransparentFX

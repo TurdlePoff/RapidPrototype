@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -97,15 +97,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.2
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 60
+    agentClimb: 1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -372,6 +372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ManaGainAmount: 5
   ManaLoseAmount: 1
+  nextUpdate: 1
+  standingCooldown: 1
 --- !u!1 &173454390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2082,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ManaGainAmount: 5
   ManaLoseAmount: 0.5
+  nextUpdate: 1
+  standingCooldown: 1
 --- !u!65 &670295356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2513,6 +2517,48 @@ Transform:
   m_Father: {fileID: 1354529174}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &809408050
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102524739251914, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d2aebbf8dd9364449960f688fac7105b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &829339718 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3135c6ade88cde84fa8a2460d6daf123, type: 3}
@@ -3972,7 +4018,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540832296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 460, y: 287.5, z: 0}
+  m_LocalPosition: {x: 416, y: 104, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 512760267}
@@ -4544,6 +4590,7 @@ GameObject:
   - component: {fileID: 1651974158}
   - component: {fileID: 1651974155}
   - component: {fileID: 1651974154}
+  - component: {fileID: 1651974157}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -4577,6 +4624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 50
+  startingHealth: 20
+  damage: 2
 --- !u!136 &1651974154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4626,6 +4675,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!135 &1651974157
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651974151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!137 &1651974158
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
