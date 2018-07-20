@@ -11,14 +11,17 @@ public class Mana : MonoBehaviour
 
 	private float m_CurrentHealth;
 	private bool m_Dead;
-   // private bool m_isActive = false;
+    private GameController gameOverScript;
 
     private void OnEnable()
 	{
 		m_CurrentHealth = m_StartingMana;
 		m_Dead = false;
 
-		SetHealthUI ();
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
+        gameOverScript = gameManager.GetComponent<GameController>();
+
+        SetHealthUI ();
 	}
 
 	public void TakeDamage(float amount)
@@ -54,6 +57,10 @@ public class Mana : MonoBehaviour
         else
         {
             m_CurrentHealth = 0.0f;
+            if (!m_Dead)
+            {
+                OnDeath();
+            }
         }
     }
 
@@ -78,7 +85,7 @@ public class Mana : MonoBehaviour
 	{
 		m_Dead = true;
 
-        //gameObject.SetActive (false);
+        gameOverScript.GameOver();
         Destroy(gameObject);
     }
 }

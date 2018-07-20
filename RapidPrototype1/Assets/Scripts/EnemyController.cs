@@ -8,14 +8,18 @@ public class EnemyController : MonoBehaviour {
     public float lookRadius = 50.0f;
     public float startingHealth = 20.0f;
     public float damage = 5.0f;
+    public int enemyWorth = 10;
 
     Transform target;
 
     NavMeshAgent agent;
 
     private Mana manaScript;
+    private GameController scoreScript;
     private float currentHealth;
     private float nextUpdate;
+
+    private bool isDead;
 
 
     // Use this for initialization
@@ -34,10 +38,14 @@ public class EnemyController : MonoBehaviour {
         {
             Debug.Log("Can't find mana script - Enemy");
         }
+        
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
+        scoreScript = gameManager.GetComponent <GameController>();
 
         currentHealth = startingHealth;
 
         nextUpdate = 0;
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -71,17 +79,7 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
-        {
-           // InvokeRepeating("manaScript.LoseMana(damage)", 0.0f, 1.0f);
-            if (nextUpdate < Time.time)
-            {
-                Debug.Log("Decrease Mana from Enemy");
-                manaScript.LoseMana(damage);
-                nextUpdate = Mathf.FloorToInt(Time.time) + 1;
-            }
-        }
-        else if(other.tag == "Bullet")
+        if(other.tag == "Bullet")
         {
             TakeDamage(5);
         }
@@ -90,14 +88,28 @@ public class EnemyController : MonoBehaviour {
             TakeDamage(20);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (nextUpdate < Time.time)
+            {
+                Debug.Log("Decrease Mana from Enemy");
+                manaScript.LoseMana(damage);
+                nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            }
+        }
+    }
 
     private void TakeDamage(int amount)
     {
         currentHealth -= amount;
 
         Debug.Log("Enemy health: " + currentHealth);
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
+            scoreScript.IncreaseScore(enemyWorth);
             Destroy(gameObject);
         }
     }
