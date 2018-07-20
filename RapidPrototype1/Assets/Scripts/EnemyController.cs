@@ -83,13 +83,17 @@ public class EnemyController : MonoBehaviour {
         }
         else if(other.tag == "Bullet")
         {
-            TakeDamage();
+            TakeDamage(5);
+        }
+        else if (other.tag == "StaticBullet")
+        {
+            TakeDamage(20);
         }
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int amount)
     {
-        currentHealth -= 5;
+        currentHealth -= amount;
 
         Debug.Log("Enemy health: " + currentHealth);
         if (currentHealth <= 0)

@@ -7,6 +7,7 @@ TagManager:
   - PlayerHolder
   - PS
   - Bullet
+  - StaticBullet
   layers:
   - Default
   - TransparentFX
