@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StandingSideBySide : MonoBehaviour
 {
-    public float ManaGainAmount = 1.0f;
-    public float ManaLoseAmount = 1.0f;
+    public float ManaGainAmount = 5.0f;
+    public float ManaLoseAmount = 0.1f;
     public int nextUpdate = 1;
-    public int standingCooldown = 1;
+    public float manaDecreaseSpeed = 1.0f;
 
     private ParticleSystem em;
     private ParticleSystem em2;
@@ -21,16 +21,28 @@ public class StandingSideBySide : MonoBehaviour
         particleSystems = GameObject.FindGameObjectsWithTag("PS");
         em = particleSystems[0].GetComponent<ParticleSystem>();
         em2 = particleSystems[1].GetComponent<ParticleSystem>();
-	}
-
-    void Update()
-    {
-        if(!isTogether && (Time.time >= nextUpdate) && (Time.time >= standingCooldown))
+        GameObject parentOfPlayers = GameObject.FindGameObjectWithTag("PlayerHolder");
+        manaScript = parentOfPlayers.GetComponent<Mana>();
+        if (null == manaScript)
         {
-            manaScript.LoseMana(ManaLoseAmount);
-            Debug.Log("Mana Decrease: " + manaScript.GetMana());
-            nextUpdate = Mathf.FloorToInt (Time.time) + 1;
+            Debug.Log("Can't find mana script - Enemy");
         }
+
+        InvokeRepeating("DecreaseMana", 5.0f, manaDecreaseSpeed * 2.0f);
+    }
+
+    //void Update()
+    //{
+    //    if(!isTogether && (Time.time >= nextUpdate)/* && (Time.time >= standingCooldown)*/)
+    //    {
+    //        nextUpdate = Mathf.FloorToInt (Time.time) + 1;
+    //    }
+    //}
+
+    void DecreaseMana()
+    {
+        manaScript.LoseMana(ManaLoseAmount);
+        Debug.Log("Mana Decrease from SideBySide: " + manaScript.GetMana() + "\nAmount: " + ManaLoseAmount);
     }
 
 	void OnTriggerStay(Collider other)
@@ -47,7 +59,7 @@ public class StandingSideBySide : MonoBehaviour
                 em.Play();
                 em2.Play();
             } else {
-				Debug.Log ("Mana Null");
+				Debug.Log ("Mana Null - SideBySide");
 			}
 
 			nextUpdate = Mathf.FloorToInt (Time.time) + 1;
@@ -56,14 +68,6 @@ public class StandingSideBySide : MonoBehaviour
         if (other.gameObject.name == "Player1" || other.gameObject.name == "Player2")
         {
             isTogether = true;
-            standingCooldown = Mathf.FloorToInt(Time.time) + 5;
         }
 	}
-
-    void OnTriggerExit()
-    {
-        isTogether = false;
-        //var emission = em.emission;
-        //emission.enabled = false;
-    }
 }

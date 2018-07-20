@@ -17,7 +17,7 @@ public class StadingSideBySide : MonoBehaviour
         em = ps.GetComponent<ParticleSystem>();
         manaScript = GetComponentInParent<Mana> ();
 		if (null == manaScript) {
-			Debug.Log ("Can't find mana script");
+			Debug.Log ("Can't find mana script - side by side");
 		}
 	}
 

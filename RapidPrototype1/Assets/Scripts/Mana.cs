@@ -11,7 +11,7 @@ public class Mana : MonoBehaviour
 
 	private float m_CurrentHealth;
 	private bool m_Dead;
-    private bool m_isActive = false;
+   // private bool m_isActive = false;
 
     private void OnEnable()
 	{
@@ -71,12 +71,14 @@ public class Mana : MonoBehaviour
     private void SetHealthUI()
 	{
 		m_Slider.value = m_CurrentHealth;
+        Debug.Log("Mana: " + m_CurrentHealth);
 	}
 
 	private void OnDeath()
 	{
 		m_Dead = true;
 
-		gameObject.SetActive (false);
-	}
+        //gameObject.SetActive (false);
+        Destroy(gameObject);
+    }
 }

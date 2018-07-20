@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour {
 
     private Mana manaScript;
     private float currentHealth;
+    private float nextUpdate;
 
 
     // Use this for initialization
@@ -31,10 +32,12 @@ public class EnemyController : MonoBehaviour {
         manaScript = parentOfPlayers.GetComponent<Mana>();
         if (null == manaScript)
         {
-            Debug.Log("Can't find mana script");
+            Debug.Log("Can't find mana script - Enemy");
         }
 
         currentHealth = startingHealth;
+
+        nextUpdate = 0;
     }
 
     // Update is called once per frame
@@ -70,7 +73,13 @@ public class EnemyController : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            manaScript.LoseMana(damage);
+           // InvokeRepeating("manaScript.LoseMana(damage)", 0.0f, 1.0f);
+            if (nextUpdate < Time.time)
+            {
+                Debug.Log("Decrease Mana from Enemy");
+                manaScript.LoseMana(damage);
+                nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            }
         }
         else if(other.tag == "Bullet")
         {
