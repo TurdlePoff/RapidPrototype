@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour {
 
     private bool isDead;
 
+    Animator anim;
+
 
     // Use this for initialization
     void Start() {
@@ -46,6 +48,8 @@ public class EnemyController : MonoBehaviour {
 
         nextUpdate = 0;
         isDead = false;
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -79,7 +83,11 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
+        if (other.tag == "Player")
+        {
+            anim.SetBool("isAttacking", true);
+        }
+        else if (other.tag == "Bullet")
         {
             TakeDamage(5);
         }
@@ -100,8 +108,15 @@ public class EnemyController : MonoBehaviour {
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            anim.SetBool("isAttacking", false);
+        }
+    }
 
-    private void TakeDamage(int amount)
+        private void TakeDamage(int amount)
     {
         currentHealth -= amount;
 
