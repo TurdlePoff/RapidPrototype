@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     private int score;
     private bool gameOver;
     private bool restart;
+    private float spawnX;
+    private float spawnZ;
 
 
     void Start()
@@ -53,7 +55,11 @@ public class GameController : MonoBehaviour
             for (int i = 0; i < hazardCount; ++i)
             {
                 GameObject hazard = slimes[Random.Range(0, slimes.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+
+                //spawnX = Random.Range(-spawnValues.x, spawnValues.x);
+                //spawnZ = Random.Range(-spawnValues.z, spawnValues.z);
+
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, Random.Range(-spawnValues.z, spawnValues.z));
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);

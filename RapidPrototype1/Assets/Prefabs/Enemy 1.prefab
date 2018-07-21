@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1633700751054430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.77, z: -6.96}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4721136924555354}
@@ -107,7 +107,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062421645632912}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9d82d1c54aaba4645abdad6a27a3189d, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 4c237299f59d0c84187e9df75e167984, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -129,7 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 50
   startingHealth: 20
-  damage: 2.5
+  damage: 2
+  enemyWorth: 10
 --- !u!135 &135662969075447656
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -215,7 +216,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2c8f0771b0fab5e4bbfde1e304243938, type: 2}
+  - {fileID: 2100000, guid: a059fa02e66b9d546a13dd38fb7083f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
