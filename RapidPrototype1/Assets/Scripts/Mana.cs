@@ -78,12 +78,27 @@ public class Mana : MonoBehaviour
     private void SetHealthUI()
 	{
 		m_Slider.value = m_CurrentHealth;
-        Debug.Log("Mana: " + m_CurrentHealth);
+        //Debug.Log("Mana: " + m_CurrentHealth);
 	}
 
 	private void OnDeath()
 	{
 		m_Dead = true;
+        
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject go in enemy)
+        {
+            EnemyController enemyScript = go.GetComponent<EnemyController>();
+            if (null != enemyScript)
+            {
+                enemyScript.PlayersDied();
+            }
+            else
+            {
+                Debug.Log("EnemyScriptNotFound");
+            }
+        }
 
         gameOverScript.GameOver();
         Destroy(gameObject);

@@ -42,7 +42,7 @@ public class StandingSideBySide : MonoBehaviour
     void DecreaseMana()
     {
         manaScript.LoseMana(ManaLoseAmount);
-        Debug.Log("Mana Decrease from SideBySide: " + manaScript.GetMana() + "\nAmount: " + ManaLoseAmount);
+        //Debug.Log("Mana Decrease from SideBySide: " + manaScript.GetMana() + "\nAmount: " + ManaLoseAmount);
     }
 
 	void OnTriggerStay(Collider other)
@@ -54,7 +54,7 @@ public class StandingSideBySide : MonoBehaviour
             //One issue = BOTH players gain and lose mana when function is triggered
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
-				Debug.Log ("Mana Increase" + manaScript.GetMana());
+				//Debug.Log ("Mana Increase" + manaScript.GetMana());
                 isTogether = true;
                 em.Play();
                 em2.Play();

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject[] slimes;
+    public GameObject portal;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     private bool restart;
     private float spawnX;
     private float spawnZ;
+    private spawnEnemy spawnEnemies;
 
 
     void Start()
@@ -34,6 +35,13 @@ public class GameController : MonoBehaviour
         score = 0;
         DisplayScore();
         StartCoroutine(SpawnWaves());
+        
+        GameObject gameManager = GameObject.FindGameObjectWithTag("SlimeSpawner");
+        spawnEnemies = gameManager.GetComponent<spawnEnemy>();
+        if(null == spawnEnemies)
+        {
+            Debug.Log("spawnEnemies null GameController");
+        }
     }
 
     private void Update()
@@ -54,10 +62,7 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < hazardCount; ++i)
             {
-                GameObject hazard = slimes[Random.Range(0, slimes.Length)];
-
-                //spawnX = Random.Range(-spawnValues.x, spawnValues.x);
-                //spawnZ = Random.Range(-spawnValues.z, spawnValues.z);
+                GameObject hazard = portal;
 
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, Random.Range(-spawnValues.z, spawnValues.z));
                 Quaternion spawnRotation = Quaternion.identity;
@@ -80,6 +85,11 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over";
         gameOver = true;
+
+        if (null != spawnEnemies)
+        {
+            spawnEnemies.GameOver();
+        }
     }
 
     public void IncreaseScore(int amount)

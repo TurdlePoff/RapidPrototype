@@ -20,8 +20,7 @@ public class EnemyController : MonoBehaviour {
     private float nextUpdate;
 
     private bool isDead;
-
-    Animator anim;
+    private bool playerDead;
 
 
     // Use this for initialization
@@ -48,22 +47,24 @@ public class EnemyController : MonoBehaviour {
 
         nextUpdate = 0;
         isDead = false;
-
-        anim = GetComponentInChildren<Animator>();
+        playerDead = false;
     }
 
     // Update is called once per frame
     void Update() {
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        if (distance <= lookRadius)
+        if (!playerDead)
         {
-            agent.SetDestination(target.position);
+            float distance = Vector3.Distance(target.position, transform.position);
 
-            if (distance <= agent.stoppingDistance)
+            if (distance <= lookRadius)
             {
-                //attack target
-                //face target
+                agent.SetDestination(target.position);
+
+                if (distance <= agent.stoppingDistance)
+                {
+                    //attack target
+                    //face target
+                }
             }
         }
     }
@@ -83,16 +84,14 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Bullet")
         {
-            anim.SetBool("isAttacking", true);
-        }
-        else if (other.tag == "Bullet")
-        {
+            Destroy(other.gameObject);
             TakeDamage(5);
         }
         else if (other.tag == "StaticBullet")
         {
+            Destroy(other.gameObject);
             TakeDamage(20);
         }
     }
@@ -102,17 +101,10 @@ public class EnemyController : MonoBehaviour {
         {
             if (nextUpdate < Time.time)
             {
-                Debug.Log("Decrease Mana from Enemy");
+                //Debug.Log("Decrease Mana from Enemy");
                 manaScript.LoseMana(damage);
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             }
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            anim.SetBool("isAttacking", false);
         }
     }
 
@@ -127,5 +119,10 @@ public class EnemyController : MonoBehaviour {
             scoreScript.IncreaseScore(enemyWorth);
             Destroy(gameObject);
         }
+    }
+
+    public void PlayersDied()
+    {
+        playerDead = true;
     }
 }

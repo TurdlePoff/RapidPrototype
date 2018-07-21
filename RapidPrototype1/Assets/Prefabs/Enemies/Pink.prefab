@@ -141,8 +141,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Radius: 1.36
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136372076743635182
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -152,10 +152,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8276694
-  m_Height: 2.0395212
+  m_Radius: 0.6
+  m_Height: 1.62
   m_Direction: 0
-  m_Center: {x: 0.387419, y: 0.6810458, z: 0.002108574}
+  m_Center: {x: 0, y: 0, z: 0.002108574}
 --- !u!137 &137833013096021634
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
