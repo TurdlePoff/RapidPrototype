@@ -34,7 +34,7 @@ public class spawnEnemy : MonoBehaviour
             }
             yield return new WaitForSeconds(waveWait);
 
-            Debug.Log("New Wave");
+            //Debug.Log("New Wave");
             while (gameOver)
             {
                 //Loop here forever
