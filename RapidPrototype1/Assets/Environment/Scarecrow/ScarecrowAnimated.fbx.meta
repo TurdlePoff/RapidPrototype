@@ -1,23 +1,71 @@
 fileFormatVersion: 2
-guid: 237daed86679de24c89229e8a4f55a7f
-timeCreated: 1532058565
+guid: 616dbcd69a2e6e44cbcf1762019f05ef
+timeCreated: 1532234430
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: cross
-    100002: pCube3
-    100004: //RootNode
+    100002: hair
+    100004: Head
+    100006: Scarecrow
+    100008: Scarecrow1
+    100010: Scarecrow2
+    100012: Scarecrow3
+    100014: Scarecrow4
+    100016: Scarecrow_Front
+    100018: Scarecrow_HairStrand_L_1
+    100020: Scarecrow_HairStrand_L_2
+    100022: Scarecrow_L_Sleeve
+    100024: Scarecrow_R_Sleeve
+    100026: //RootNode
+    100028: ScarecrowBack_1
+    100030: ScarecrowBack_2
+    100032: ScarecrowDress
+    100034: ScarecrowHair_Root
+    100036: ScarecrowHairBack
+    100038: ScarecrowHairBack_3
+    100040: ScarecrowHairStrand_L_3
+    100042: ScarecrowHairStrand_R_1
+    100044: ScarecrowHairStrand_R_2
+    100046: ScarecrowHairStrand_R_3
+    100048: ScarecrowHead
     400000: cross
-    400002: pCube3
-    400004: //RootNode
+    400002: hair
+    400004: Head
+    400006: Scarecrow
+    400008: Scarecrow1
+    400010: Scarecrow2
+    400012: Scarecrow3
+    400014: Scarecrow4
+    400016: Scarecrow_Front
+    400018: Scarecrow_HairStrand_L_1
+    400020: Scarecrow_HairStrand_L_2
+    400022: Scarecrow_L_Sleeve
+    400024: Scarecrow_R_Sleeve
+    400026: //RootNode
+    400028: ScarecrowBack_1
+    400030: ScarecrowBack_2
+    400032: ScarecrowDress
+    400034: ScarecrowHair_Root
+    400036: ScarecrowHairBack
+    400038: ScarecrowHairBack_3
+    400040: ScarecrowHairStrand_L_3
+    400042: ScarecrowHairStrand_R_1
+    400044: ScarecrowHairStrand_R_2
+    400046: ScarecrowHairStrand_R_3
+    400048: ScarecrowHead
     2300000: cross
-    2300002: pCube3
     3300000: cross
-    3300002: pCube3
     4300000: cross
-    4300002: pCube3
+    4300002: hair
+    4300004: ScarecrowDress
+    4300006: Head
+    7400000: Take 001
     9500000: //RootNode
+    13700000: hair
+    13700002: Head
+    13700004: ScarecrowDress
   externalObjects:
   - first:
       type: UnityEngine:Material
