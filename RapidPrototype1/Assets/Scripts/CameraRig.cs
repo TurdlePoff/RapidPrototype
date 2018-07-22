@@ -23,8 +23,11 @@ public class CameraRig : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		Move();
-		Zoom();
+        if (m_Targets[0] != null)
+        {
+            Move();
+            Zoom();
+        }
 	}
 
 	private void Move()

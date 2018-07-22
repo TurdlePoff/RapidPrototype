@@ -13,7 +13,7 @@ public class StandingSideBySide : MonoBehaviour
     private ParticleSystem em2;
     private GameObject[] particleSystems;
     private Mana manaScript;
-    private bool isTogether = false;
+    //private bool isTogether = false;
 
 
 	void Start()
@@ -55,7 +55,7 @@ public class StandingSideBySide : MonoBehaviour
 			if (manaScript != null) {
 				manaScript.GainMana (ManaGainAmount);
 				//Debug.Log ("Mana Increase" + manaScript.GetMana());
-                isTogether = true;
+                //isTogether = true;
                 em.Play();
                 em2.Play();
             } else {
@@ -67,7 +67,7 @@ public class StandingSideBySide : MonoBehaviour
 
         if (other.gameObject.name == "Player1" || other.gameObject.name == "Player2")
         {
-            isTogether = true;
+            //isTogether = true;
         }
 	}
 }

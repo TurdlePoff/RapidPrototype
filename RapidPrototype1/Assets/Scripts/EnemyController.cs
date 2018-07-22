@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     private float nextUpdate;
 
     private bool isDead;
-    private bool playerDead;
+    //private bool playerDead;
 
 
     // Use this for initialization
@@ -34,12 +34,18 @@ public class EnemyController : MonoBehaviour
         //playertoTarget = Random.Range(0, 1);
         var possibleTargets = GameObject.FindGameObjectsWithTag("Player");
 
-        target = possibleTargets[Random.Range(0, 2)].transform;
+        if (0 != possibleTargets.Length)
+        {
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)].transform;
+        }
 
         agent = GetComponent<NavMeshAgent>();
         
         GameObject parentOfPlayers = GameObject.FindGameObjectWithTag("PlayerHolder");
-        manaScript = parentOfPlayers.GetComponent<Mana>();
+        if (null != parentOfPlayers)
+        {
+            manaScript = parentOfPlayers.GetComponent<Mana>();
+        }
         if (null == manaScript)
         {
             Debug.Log("Can't find mana script - Enemy");
@@ -54,12 +60,12 @@ public class EnemyController : MonoBehaviour
 
         nextUpdate = 0;
         isDead = false;
-        playerDead = false;
+        //playerDead = false;
     }
 
     // Update is called once per frame
     void Update() {
-        if (!playerDead)
+        if (target != null)
         {
             float distance = Vector3.Distance(target.position, transform.position);
 
@@ -141,6 +147,6 @@ public class EnemyController : MonoBehaviour
 
     public void PlayersDied()
     {
-        playerDead = true;
+        //playerDead = true;
     }
 }

@@ -88,9 +88,10 @@ public class Mana : MonoBehaviour
 	private void OnDeath()
 	{
 		m_Dead = true;
-        
-        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        gameOverScript.GameOver();
+        Destroy(gameObject);
 
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject go in enemy)
         {
             EnemyController enemyScript = go.GetComponent<EnemyController>();
@@ -103,8 +104,5 @@ public class Mana : MonoBehaviour
                 Debug.Log("EnemyScriptNotFound");
             }
         }
-
-        gameOverScript.GameOver();
-        Destroy(gameObject);
     }
 }
