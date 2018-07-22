@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d185aa33f0b942941a3a263555474feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portal: {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  portalandpotions: []
   spawnValues: {x: 30, y: 5, z: 35}
   hazardCount: 1
   spawnWait: 0
@@ -3652,7 +3652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef10b0bb9ea3f4ab9a2f5e8c8c1c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartingMana: 1
+  m_StartingMana: 100
   m_Slider: {fileID: 616661444}
 --- !u!4 &1223195120
 Transform:
@@ -4286,7 +4286,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540832296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 474, y: 265, z: 0}
+  m_LocalPosition: {x: 416, y: 236, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 512760267}
@@ -5402,7 +5402,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917762046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -440, y: 231, z: 0}
+  m_LocalPosition: {x: -382, y: 202, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1540832300}

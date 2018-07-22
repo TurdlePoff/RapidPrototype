@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public Text scoreText;
 
     private int score;
-    private bool gameOver;
+    //private bool gameOver;
     private bool restart;
     private float spawnX;
     private float spawnZ;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        gameOver = false;
+        //gameOver = false;
         restart = false;
         gameOverText.text = "";
         restartText.text = "";
@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverText.text = "Game Over";
-        gameOver = true;
+        //gameOver = true;
         restartText.text = "Press 'R' to restart";
         restart = true;
 
