@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098338086221338}
-  m_Mesh: {fileID: 4300000, guid: 9d82d1c54aaba4645abdad6a27a3189d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 467c44cb4d3380a41955c3a86ff2a74c, type: 3}
 --- !u!54 &54765072307769572
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -270,7 +270,7 @@ Animator:
   m_GameObject: {fileID: 1098338086221338}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9d82d1c54aaba4645abdad6a27a3189d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa8301f8bb52fbb4194a8f5cf5f939ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -405,7 +405,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 9d82d1c54aaba4645abdad6a27a3189d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 467c44cb4d3380a41955c3a86ff2a74c, type: 3}
   m_Bones: []
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
