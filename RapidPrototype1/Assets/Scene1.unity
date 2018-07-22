@@ -3152,7 +3152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d185aa33f0b942941a3a263555474feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalandpotions: []
+  portalandpotions:
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
+  - {fileID: 1819252842135018, guid: b4cb6a715b1fc554e9054c8bd1d48db9, type: 2}
+  - {fileID: 1819252842135018, guid: 64a061a35b811744abf7ac32f5578751, type: 2}
   spawnValues: {x: 30, y: 5, z: 35}
   hazardCount: 1
   spawnWait: 0
