@@ -3154,10 +3154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portal: {fileID: 1731076796484982, guid: feb1872b50dc42a4aa7c5f5bff731e81, type: 2}
   spawnValues: {x: 30, y: 5, z: 35}
-  hazardCount: 10
-  spawnWait: 10
+  hazardCount: 1
+  spawnWait: 0
   startWait: 5
-  waveWait: 30
+  waveWait: 10
   gameOverText: {fileID: 130115006}
   restartText: {fileID: 562498251}
   scoreText: {fileID: 1917762047}

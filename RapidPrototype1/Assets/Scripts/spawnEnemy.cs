@@ -45,6 +45,8 @@ public class spawnEnemy : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+        Debug.Log("spawnEnemies got GameOver");
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

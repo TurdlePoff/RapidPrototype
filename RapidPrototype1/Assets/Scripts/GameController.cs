@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject portal;
+    public GameObject[] portalandpotions;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
@@ -62,22 +62,20 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < hazardCount; ++i)
             {
-                GameObject hazard = portal;
+                if (0 != portalandpotions.Length)
+                {
+                    GameObject hazard = portalandpotions[Random.Range(0, portalandpotions.Length)];
 
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, Random.Range(-spawnValues.z, spawnValues.z));
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, Random.Range(-spawnValues.z, spawnValues.z));
+                    Quaternion spawnRotation = Quaternion.identity;
+                    Instantiate(hazard, spawnPosition, spawnRotation);
+                }
+
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
 
             Debug.Log("New Wave");
-            if (gameOver)
-            {
-                restartText.text = "Press 'R' to restart";
-                restart = true;
-                break;
-            }
         }
     }
 
@@ -85,10 +83,16 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over";
         gameOver = true;
+        restartText.text = "Press 'R' to restart";
+        restart = true;
 
         if (null != spawnEnemies)
         {
             spawnEnemies.GameOver();
+        }
+        else
+        {
+            Debug.Log("GameController can't find Slime Spawner");
         }
     }
 
