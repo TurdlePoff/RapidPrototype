@@ -11,6 +11,8 @@ public class DestroySelf : MonoBehaviour {
     private void Start()
     {
         spawnTime = Time.time;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayDelayed(1);
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class Mana : MonoBehaviour
 	private float m_CurrentHealth;
 	private bool m_Dead;
     private GameController gameOverScript;
+    private AudioSource audioSource;
 
     private void OnEnable()
 	{
@@ -20,6 +21,8 @@ public class Mana : MonoBehaviour
 
         GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
         gameOverScript = gameManager.GetComponent<GameController>();
+
+        audioSource = GetComponent<AudioSource>();
 
         SetHealthUI ();
 	}
@@ -36,7 +39,8 @@ public class Mana : MonoBehaviour
 
 	public void GainMana(float amount)
 	{
-        if(m_CurrentHealth < m_MaxMana)
+        audioSource.Play();
+        if (m_CurrentHealth < m_MaxMana)
         {
             m_CurrentHealth += amount;
             SetHealthUI();

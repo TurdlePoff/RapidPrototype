@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
+    public AudioClip moving;
+    public AudioClip attacking;
+    public AudioSource hurt;
 
     public float lookRadius = 50.0f;
     public float startingHealth = 20.0f;
@@ -16,6 +20,7 @@ public class EnemyController : MonoBehaviour {
 
     private Mana manaScript;
     private GameController scoreScript;
+    private AudioSource audioSource;
     private float currentHealth;
     private float nextUpdate;
 
@@ -44,6 +49,8 @@ public class EnemyController : MonoBehaviour {
         scoreScript = gameManager.GetComponent <GameController>();
 
         currentHealth = startingHealth;
+
+        audioSource = GetComponent<AudioSource>();
 
         nextUpdate = 0;
         isDead = false;
@@ -102,15 +109,26 @@ public class EnemyController : MonoBehaviour {
             if (nextUpdate < Time.time)
             {
                 //Debug.Log("Decrease Mana from Enemy");
+                audioSource.clip = attacking;
+                audioSource.Play();
                 manaScript.LoseMana(damage);
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            audioSource.clip = moving;
+            audioSource.Play();
         }
     }
 
     private void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        hurt.Play();
 
         Debug.Log("Enemy health: " + currentHealth);
         if (currentHealth <= 0 && !isDead)
