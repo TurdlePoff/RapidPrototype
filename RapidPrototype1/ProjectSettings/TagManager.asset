@@ -8,6 +8,8 @@ TagManager:
   - PS
   - Bullet
   - StaticBullet
+  - SlimeSpawner
+  - Enemy
   layers:
   - Default
   - TransparentFX
