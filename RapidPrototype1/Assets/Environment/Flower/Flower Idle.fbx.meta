@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 7a4c72f90430a9347b545368321a8215
-timeCreated: 1531977791
+guid: 225f342676fde8047b1f617d25bded4f
+timeCreated: 1532379850
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: TreePointyTop
+    4300000: FlowerC
+    7400000: Take 001
     9500000: //RootNode
+    13700000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TreePointy
-    second: {fileID: 2100000, guid: 1bd6f99d712832e4eb20e2a32f5f0831, type: 2}
+      name: pasted__pasted__lambert11
+    second: {fileID: 2100000, guid: e167f005c9d8ace4bb25c5227a3fcbbd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
