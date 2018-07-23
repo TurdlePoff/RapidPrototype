@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 65264551292188190}
   - component: {fileID: 135081870285919364}
   - component: {fileID: 82413336113669578}
+  - component: {fileID: 136974928008770620}
   m_Layer: 0
   m_Name: scarecrow
   m_TagString: SlimeSpawner
@@ -768,7 +769,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731076796484982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.537948, y: -0.098027326, z: -25.169231}
+  m_LocalPosition: {x: 0, y: -0.39, z: 20.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4402840855383652}
@@ -826,10 +827,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!65 &65264551292188190
 BoxCollider:
@@ -839,7 +840,7 @@ BoxCollider:
   m_GameObject: {fileID: 1731076796484982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1.5, z: 0.8}
   m_Center: {x: 0.06, y: 0.88, z: 0}
@@ -849,7 +850,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731076796484982}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5c9e6f2cb2217fb4f8e0f9e3c74159fd, type: 3}
@@ -970,6 +971,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!136 &136974928008770620
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731076796484982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 12
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137102100234132220
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
