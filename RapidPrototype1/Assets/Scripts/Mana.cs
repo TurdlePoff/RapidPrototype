@@ -11,7 +11,7 @@ public class Mana : MonoBehaviour
 
 	private float m_CurrentHealth;
 	private bool m_Dead;
-    private GameController gameOverScript;
+    private GameController gameController;
     private AudioSource audioSource;
 
     private void OnEnable()
@@ -20,7 +20,7 @@ public class Mana : MonoBehaviour
 		m_Dead = false;
 
         GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
-        gameOverScript = gameManager.GetComponent<GameController>();
+        gameController = gameManager.GetComponent<GameController>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -81,14 +81,16 @@ public class Mana : MonoBehaviour
 
     private void SetHealthUI()
 	{
-		m_Slider.value = m_CurrentHealth;
+        gameController.DisplayMana(m_CurrentHealth);
+
+        m_Slider.value = m_CurrentHealth;
         //Debug.Log("Mana: " + m_CurrentHealth);
 	}
 
 	private void OnDeath()
 	{
 		m_Dead = true;
-        gameOverScript.GameOver();
+        gameController.GameOver();
         Destroy(gameObject);
 
         GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");

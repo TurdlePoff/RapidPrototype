@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text restartText;
     public Text scoreText;
+    public Text manaText;
 
     private int score;
     //private bool gameOver;
@@ -23,7 +24,6 @@ public class GameController : MonoBehaviour
     private float spawnX;
     private float spawnZ;
     private spawnEnemy spawnEnemies;
-
 
     void Start()
     {
@@ -38,7 +38,8 @@ public class GameController : MonoBehaviour
         
         GameObject gameManager = GameObject.FindGameObjectWithTag("SlimeSpawner");
         spawnEnemies = gameManager.GetComponent<spawnEnemy>();
-        if(null == spawnEnemies)
+
+        if (null == spawnEnemies)
         {
             Debug.Log("spawnEnemies null GameController");
         }
@@ -94,6 +95,11 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("GameController can't find Slime Spawner");
         }
+    }
+
+    public void DisplayMana(float amount)
+    {
+        manaText.text = "Mana: " + amount.ToString();
     }
 
     public void IncreaseScore(int amount)
