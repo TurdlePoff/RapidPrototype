@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 198032101295156160}
   - component: {fileID: 199675825294050968}
   m_Layer: 0
-  m_Name: PS_Parent_Blue 1
+  m_Name: PS_FireParticles_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
