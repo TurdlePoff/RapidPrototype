@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a95c2fea5763d4d4a8a83780c056cbd5
-timeCreated: 1531980641
+guid: 0dc7a0c08adb1a94dac516ebde0e3f7c
+timeCreated: 1532404097
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,14 +9,14 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: GenericField
+    4300000: LargeGroundLump2
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: ba561ab9335515b4aa82221c2a6f4fb5, type: 2}
+      name: ExtrudedGround1
+    second: {fileID: 2100000, guid: 749f12dcdcbc8be499c9093b4d301238, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
