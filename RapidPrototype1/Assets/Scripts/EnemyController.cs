@@ -108,7 +108,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (other.tag == "StaticBullet")
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             TakeDamage(20);
         }
     }
