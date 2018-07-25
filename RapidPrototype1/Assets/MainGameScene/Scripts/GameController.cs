@@ -13,9 +13,11 @@ public class GameController : MonoBehaviour
     public float startWait;
     public float waveWait;
 
+    public Text manaOverText;
     public Text gameOverText;
     public Text restartText;
     public Text scoreText;
+    public Text quoteText;
     public Text manaText;
 
     private int score;
@@ -31,6 +33,8 @@ public class GameController : MonoBehaviour
         restart = false;
         gameOverText.text = "";
         restartText.text = "";
+        manaOverText.text = "";
+        quoteText.text = "";
 
         score = 0;
         DisplayScore();
@@ -76,15 +80,16 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
-
-            Debug.Log("New Wave");
         }
     }
 
     public void GameOver()
     {
+        manaOverText.text = "You lost all your Mana";
         gameOverText.text = "Game Over";
         //gameOver = true;
+        quoteText.text = "Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend.'' - Albert Camus";
+
         restartText.text = "Press 'R' to restart";
         restart = true;
 

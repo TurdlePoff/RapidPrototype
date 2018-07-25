@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public float damage = 5.0f;
     public int enemyWorth = 10;
 
+    private bool m_bHitPlayer = false;
+
     Transform target;
 
     NavMeshAgent agent;
@@ -68,6 +70,13 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        if(!m_bHitPlayer)
+        {
+            if(manaScript != null)
+                manaScript.SetIsNotHurt();
+        }
+
         if (target != null)
         {
             float distance = Vector3.Distance(target.position, transform.position);
@@ -124,17 +133,20 @@ public class EnemyController : MonoBehaviour
                 //Debug.Log("Decrease Mana from Enemy");
                 audioSource.clip = attacking;
                 audioSource.Play();
-                manaScript.LoseMana(damage);
+                manaScript.TakeDamage(damage);
+                m_bHitPlayer = true;
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
             audioSource.clip = moving;
             audioSource.Play();
+            m_bHitPlayer = false;
         }
     }
 

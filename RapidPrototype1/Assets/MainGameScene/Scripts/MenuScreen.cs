@@ -9,6 +9,14 @@ public class MenuScreen : MonoBehaviour
     public GameObject HelpMenuUI;
     public GameObject StartMenuUI;
     public GameObject CreditsMenuUI;
+    private ParticleSystem em;
+
+
+    public void Start()
+    {
+        em = GetComponentInChildren<ParticleSystem>();
+        em.Play();
+    }
 
     public void PlayGame()
     {
@@ -17,6 +25,7 @@ public class MenuScreen : MonoBehaviour
 
     public void LoadStartMenu()
     {
+        em.Play();
         StartMenuUI.SetActive(true);
         HelpMenuUI.SetActive(false);
         MainMenuUI.SetActive(false);

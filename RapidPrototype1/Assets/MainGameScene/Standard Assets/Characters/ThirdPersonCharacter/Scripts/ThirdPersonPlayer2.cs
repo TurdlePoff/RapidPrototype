@@ -16,23 +16,29 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		//Public variables
 		public GameObject bulletPrefab;
 		public Transform bulletSpawn;
+        public Mana manaScript;
 
 		private void Start()
 		{
 			m_Character = GetComponent<ThirdPersonCharacter>();
 		}
 
-
 		private void Update()
 		{
             if (Input.GetKeyDown(KeyCode.RightControl))
             {
                 Fire();
+                manaScript.UseManaAttack(1.0f);
                 m_Character.AnimAttack(false);
             }
+            else if (Input.GetKeyUp(KeyCode.RightControl))
+            {
+                m_Character.StopAttack(false);
+            }
+
         }
 
-		void Fire()
+        void Fire()
 		{
 			// Create the Bullet from the Bullet Prefab
 			var bullet = (GameObject)Instantiate(

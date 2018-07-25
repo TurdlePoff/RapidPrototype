@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
@@ -7,7 +8,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	[RequireComponent(typeof(Animator))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
-		[SerializeField] float m_MovingTurnSpeed = 360;
+        public Mana m_script;
+
+        [SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
 		[SerializeField] float m_JumpPower = 12f;
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
@@ -41,7 +44,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
-
+        
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
@@ -155,9 +158,31 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void AnimAttack(bool isErin)
         {
             if(isErin)
+            {
                 m_Animator.CrossFade("ErinAttack2", 0.1f);
+                m_Animator.SetBool("isAttacking", true);
+            }
             else
+            {
                 m_Animator.CrossFade("HarryAttack2", 0.1f);
+                m_Animator.SetBool("ishAttacking", true);
+            }
+        }
+
+        public void StopAttack(bool isErin)
+        {
+            if (isErin)
+            {
+                m_Animator.SetBool("isAttacking", false);
+                m_script.SetIsNotAttacking();
+
+            }
+            else
+            {
+                m_Animator.SetBool("ishAttacking", false);
+                m_script.SetIsNotAttacking();
+
+            }
         }
 
         void HandleAirborneMovement()

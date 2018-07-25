@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33528945447238902}
   - component: {fileID: 23144841832588162}
   - component: {fileID: 95365619946882922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65702397718678202}
   - component: {fileID: 135286319922036292}
   - component: {fileID: 114964385897313558}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PotionScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
