@@ -8,6 +8,7 @@ public class MenuScreen : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject HelpMenuUI;
     public GameObject StartMenuUI;
+    public GameObject CreditsMenuUI;
 
     public void PlayGame()
     {
@@ -33,6 +34,13 @@ public class MenuScreen : MonoBehaviour
         StartMenuUI.SetActive(false);
     }
 
+    public void LoadCreditsMenu()
+    {
+        HelpMenuUI.SetActive(false);
+        MainMenuUI.SetActive(false);
+        StartMenuUI.SetActive(false);
+        CreditsMenuUI.SetActive(true);
+    }
 
     public void QuitGame()
     {
