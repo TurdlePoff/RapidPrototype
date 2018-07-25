@@ -34,9 +34,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
 
             if (Input.GetKeyDown(KeyCode.LeftControl))
-            { 
+            {
                 Fire();
+                m_Character.AnimAttack(true);
             }
+            
         }
         
         void Fire()

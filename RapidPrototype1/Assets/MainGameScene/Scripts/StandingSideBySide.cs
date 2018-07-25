@@ -9,8 +9,8 @@ public class StandingSideBySide : MonoBehaviour
     public int nextUpdate = 1;
     public float manaDecreaseSpeed = 1.0f;
 
-    private ParticleSystem em;
-    private ParticleSystem em2;
+    public ParticleSystem em;
+    public ParticleSystem em2;
     private GameObject[] particleSystems;
     private Mana manaScript;
     //private bool isTogether = false;
@@ -18,9 +18,9 @@ public class StandingSideBySide : MonoBehaviour
 
 	void Start()
 	{
-        particleSystems = GameObject.FindGameObjectsWithTag("PS");
-        em = particleSystems[0].GetComponent<ParticleSystem>();
-        em2 = particleSystems[1].GetComponent<ParticleSystem>();
+        //particleSystems = GameObject.FindGameObjectsWithTag("PS");
+        //em = particleSystems[0].GetComponent<ParticleSystem>();
+        //em2 = particleSystems[1].GetComponent<ParticleSystem>();
         GameObject parentOfPlayers = GameObject.FindGameObjectWithTag("PlayerHolder");
         manaScript = parentOfPlayers.GetComponent<Mana>();
         if (null == manaScript)

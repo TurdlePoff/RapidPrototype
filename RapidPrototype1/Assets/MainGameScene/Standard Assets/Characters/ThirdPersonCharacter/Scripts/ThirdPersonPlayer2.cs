@@ -30,11 +30,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
 			}
 
-			if (Input.GetKeyDown(KeyCode.RightControl))
-			{ 
-				Fire();
-			}
-		}
+            if (Input.GetKeyDown(KeyCode.RightControl))
+            {
+                Fire();
+                m_Character.AnimAttack(false);
+            }
+        }
 
 		void Fire()
 		{
