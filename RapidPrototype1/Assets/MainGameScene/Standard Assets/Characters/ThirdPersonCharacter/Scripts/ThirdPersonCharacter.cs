@@ -152,8 +152,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
+        public void AnimAttack()
+        {
+            m_Animator.CrossFade("ErinAttack2", 0.1f);
+            //m_Animator.SetBool("isAttacking", attack);
+        }
 
-		void HandleAirborneMovement()
+        void HandleAirborneMovement()
 		{
 			// apply extra gravity from multiplier:
 			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
