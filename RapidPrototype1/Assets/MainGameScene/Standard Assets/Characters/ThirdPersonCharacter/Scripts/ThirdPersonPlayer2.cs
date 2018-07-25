@@ -25,11 +25,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private void Update()
 		{
-			if (!m_Jump)
-			{
-				m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-			}
-
             if (Input.GetKeyDown(KeyCode.RightControl))
             {
                 Fire();
@@ -59,7 +54,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// read inputs
 			float h = CrossPlatformInputManager.GetAxis("Horizontal2");
 			float v = CrossPlatformInputManager.GetAxis("Vertical2");
-			bool crouch = Input.GetKey(KeyCode.C);
+			bool crouch = false;
 
 			// calculate move direction to pass to character
 			if (m_Cam != null)

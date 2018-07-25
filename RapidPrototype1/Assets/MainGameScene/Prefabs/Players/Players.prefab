@@ -2475,7 +2475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853928777650666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0.262, y: 0.364, z: 0.814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4472377010317108}
@@ -2503,7 +2503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105378583548628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.396, z: 0.961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4840909939782510}
@@ -4113,6 +4113,8 @@ MonoBehaviour:
   ManaLoseAmount: 0.5
   nextUpdate: 1
   manaDecreaseSpeed: 1
+  em: {fileID: 0}
+  em2: {fileID: 0}
 --- !u!114 &114871178774936448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4141,6 +4143,8 @@ MonoBehaviour:
   ManaLoseAmount: 0.5
   nextUpdate: 1
   manaDecreaseSpeed: 1
+  em: {fileID: 198109366903558632}
+  em2: {fileID: 198431067088232902}
 --- !u!136 &136218191805713708
 CapsuleCollider:
   m_ObjectHideFlags: 1

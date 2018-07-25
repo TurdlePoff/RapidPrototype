@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (true)
         {
+
             for (int i = 0; i < hazardCount; ++i)
             {
                 if (0 != portalandpotions.Length)
