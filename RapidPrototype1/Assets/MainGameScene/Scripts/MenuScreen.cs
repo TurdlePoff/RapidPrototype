@@ -20,18 +20,24 @@ public class MenuScreen : MonoBehaviour
         StartMenuUI.SetActive(true);
         HelpMenuUI.SetActive(false);
         MainMenuUI.SetActive(false);
+        CreditsMenuUI.SetActive(false);
+
     }
     public void LoadMainMenu()
     {
         MainMenuUI.SetActive(true);
         HelpMenuUI.SetActive(false);
         StartMenuUI.SetActive(false);
+        CreditsMenuUI.SetActive(false);
+
     }
     public void LoadHelpMenu()
     {
         HelpMenuUI.SetActive(true);
         MainMenuUI.SetActive(false);
         StartMenuUI.SetActive(false);
+        CreditsMenuUI.SetActive(false);
+
     }
 
     public void LoadCreditsMenu()
