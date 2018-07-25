@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1689736624873758
 GameObject:
   m_ObjectHideFlags: 1
@@ -824,7 +824,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 803327141
+  randomSeed: -216046308
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17409,7 +17409,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1005790446
+  randomSeed: -294227070
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -53896,7 +53896,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -50263933
+  randomSeed: 831766030
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -60755,7 +60755,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a33531260d4e99f469cc25604cbaf4a4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -61241,7 +61241,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a33531260d4e99f469cc25604cbaf4a4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     private float currentHealth;
     private float nextUpdate;
 
+    private ParticleSystem em;
     private bool isDead;
     //private bool playerDead;
 
@@ -61,6 +62,8 @@ public class EnemyController : MonoBehaviour
         nextUpdate = 0;
         isDead = false;
         //playerDead = false;
+
+        em = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -139,6 +142,15 @@ public class EnemyController : MonoBehaviour
     {
         currentHealth -= amount;
         hurt.Play();
+
+        if (null != em)
+        {
+            em.Play();
+        }
+        else
+        {
+            Debug.Log("Can't find em EnemyController");
+        }
 
         Debug.Log("Enemy health: " + currentHealth);
         if (currentHealth <= 0 && !isDead)

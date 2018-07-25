@@ -10111,7 +10111,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4fa53704202dd7c43af9fa9fcdfc4ea0, type: 2}
+  - {fileID: 2100000, guid: a33531260d4e99f469cc25604cbaf4a4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -10165,7 +10165,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d934e1c4d878a14fb6598685d87257c, type: 2}
+  - {fileID: 2100000, guid: a33531260d4e99f469cc25604cbaf4a4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
