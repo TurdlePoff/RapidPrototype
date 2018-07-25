@@ -9,7 +9,6 @@ public class spawnEnemy : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
-
     private bool gameOver;
 
     void Start()
@@ -34,7 +33,7 @@ public class spawnEnemy : MonoBehaviour
             }
             yield return new WaitForSeconds(waveWait);
 
-            //Debug.Log("New Wave");
+            Debug.Log("New Wave");
             while (gameOver)
             {
                 //Loop here forever

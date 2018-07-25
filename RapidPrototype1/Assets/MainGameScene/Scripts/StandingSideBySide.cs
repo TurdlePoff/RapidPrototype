@@ -15,12 +15,8 @@ public class StandingSideBySide : MonoBehaviour
     private Mana manaScript;
     //private bool isTogether = false;
 
-
 	void Start()
 	{
-        //particleSystems = GameObject.FindGameObjectsWithTag("PS");
-        //em = particleSystems[0].GetComponent<ParticleSystem>();
-        //em2 = particleSystems[1].GetComponent<ParticleSystem>();
         GameObject parentOfPlayers = GameObject.FindGameObjectWithTag("PlayerHolder");
         manaScript = parentOfPlayers.GetComponent<Mana>();
         if (null == manaScript)
@@ -31,18 +27,9 @@ public class StandingSideBySide : MonoBehaviour
         InvokeRepeating("DecreaseMana", 5.0f, manaDecreaseSpeed * 2.0f);
     }
 
-    //void Update()
-    //{
-    //    if(!isTogether && (Time.time >= nextUpdate)/* && (Time.time >= standingCooldown)*/)
-    //    {
-    //        nextUpdate = Mathf.FloorToInt (Time.time) + 1;
-    //    }
-    //}
-
     void DecreaseMana()
     {
         manaScript.LoseMana(ManaLoseAmount);
-        //Debug.Log("Mana Decrease from SideBySide: " + manaScript.GetMana() + "\nAmount: " + ManaLoseAmount);
     }
 
 	void OnTriggerStay(Collider other)
