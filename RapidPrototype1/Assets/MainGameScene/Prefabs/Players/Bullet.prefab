@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 23613577594623270}
   - component: {fileID: 54657966192130654}
   - component: {fileID: 82797778898288968}
+  - component: {fileID: 114901991070295494}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -645,6 +646,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114901991070295494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175988447497456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea838b30257f744084e5975608846a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleHolder: {fileID: 1468456567509978, guid: f88497e3a1cce0747918eecba26d62d4,
+    type: 2}
 --- !u!135 &135170431860278222
 SphereCollider:
   m_ObjectHideFlags: 1
