@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+<<<<<<< .merge_file_a08800
 # Visual Studio 2017
+=======
+# Visual Studio 15
+>>>>>>> .merge_file_a08548
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidPrototype1", "RapidPrototype1.csproj", "{EB91A1F1-B5F3-3A8E-51A3-0FEDE9B0A33F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidPrototype1.Editor", "RapidPrototype1.Editor.csproj", "{632AD410-46D3-4CD1-9ECE-92E6864ED911}"
