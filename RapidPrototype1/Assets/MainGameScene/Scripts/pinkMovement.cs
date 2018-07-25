@@ -10,7 +10,7 @@ public class pinkMovement : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
     }
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
