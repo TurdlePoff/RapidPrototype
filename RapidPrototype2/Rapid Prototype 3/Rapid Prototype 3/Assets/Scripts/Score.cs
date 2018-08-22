@@ -60,7 +60,10 @@ public class Score : MonoBehaviour {
         }
         if (0 >= oxygenSlider.value)
         {
-            GameManager.GameOver();
+            //GameManager.GameOver();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            PlayerMovementType2 playerToDie = player.GetComponent<PlayerMovementType2>();
+            playerToDie.BirdDied();
         }
 
         if(oxygenSlider.value < 30)

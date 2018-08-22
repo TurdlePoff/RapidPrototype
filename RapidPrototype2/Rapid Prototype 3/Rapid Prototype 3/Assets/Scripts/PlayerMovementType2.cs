@@ -39,6 +39,9 @@ public class PlayerMovementType2 : MonoBehaviour
 
     bool bInBarrier;
 
+    bool bIsDead = false;
+    bool bPlayedIsDead = false;
+
     // public float tiltSpeed = 50f;
 
     void Start()
@@ -62,7 +65,7 @@ public class PlayerMovementType2 : MonoBehaviour
     void FixedUpdate()
     {
         myCamera.transform.LookAt(transform);
-        if (CanMove)
+        if (CanMove && !bIsDead)
         {
             //anim.SetBool("TurningLeft", false);
             //anim.SetBool("TurningRight", false);
@@ -249,7 +252,7 @@ public class PlayerMovementType2 : MonoBehaviour
                 RenderSettings.fog = false;
             }
         }
-        else
+        else if(!CanMove && !bIsDead)
         {
             Vector3 lookPos = Vector3.zero - rb.transform.position;
             lookPos.y = 0.0f;
@@ -268,6 +271,27 @@ public class PlayerMovementType2 : MonoBehaviour
 
             // Move our position a step closer to the target.
             transform.rotation = Quaternion.LookRotation(newDir);
+        }
+        else if(bIsDead)
+        {
+            //Vector3 lookPos = transform.forward;
+            //lookPos.y -= 10f;
+            //var rotation = Quaternion.LookRotation(lookPos);
+            //rb.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+
+            GameObject kingfisherModel = GameObject.FindGameObjectWithTag("KingfisherModel");
+
+            if (!bPlayedIsDead)
+            {
+                bPlayedIsDead = true;
+                
+                kingfisherModel.transform.Rotate(transform.forward, 180, Space.World);
+
+                anim.SetBool("IsDead", true);
+
+                Invoke("Death", 3f);
+            }
+            kingfisherModel.transform.Translate(Vector3.down * 0.1f * Time.deltaTime, Space.World);
         }
     }
 
@@ -362,5 +386,15 @@ public class PlayerMovementType2 : MonoBehaviour
             CanMove = false;
             bInBarrier = false;
         }
+    }
+    
+    public void BirdDied()
+    {
+        bIsDead = true;
+    }
+
+    void Death()
+    {
+        GameManager.GameOver();
     }
 }

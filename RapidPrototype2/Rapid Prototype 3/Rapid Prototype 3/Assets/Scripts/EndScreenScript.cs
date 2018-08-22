@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class EndScreenScript : MonoBehaviour {
 
     
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MenuScreen");
+    }
 
     public void RestartGame()
     {

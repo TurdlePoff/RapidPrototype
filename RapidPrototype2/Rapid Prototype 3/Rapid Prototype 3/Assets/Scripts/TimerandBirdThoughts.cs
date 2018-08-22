@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TimerandBirdThoughts : MonoBehaviour
 {
     public Text birdThoughts;
-    public int iChickHungerDefault = 100;
     public int iHungerDecreaseRate = 2;
     public Slider ChickHunger;
     public int iScoreTimesAmount = 5;
@@ -29,7 +28,7 @@ public class TimerandBirdThoughts : MonoBehaviour
     {
         iCurrentThought = 0;
         fTalkCooldown = 0;
-        iCurrentChickHunger = iChickHungerDefault;
+        iCurrentChickHunger = GameManager.GetHungerScore(); ;
 
         InvokeRepeating("DecreaseHunger", 1.0f, 1.0f);
         flashCooldown = Time.time + 5f;
@@ -111,18 +110,24 @@ public class TimerandBirdThoughts : MonoBehaviour
         
         if (0 >= iCurrentChickHunger)
         {
-            GameManager.GameOver();
+            //GameManager.GameOver();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            PlayerMovementType2 playerToDie = player.GetComponent<PlayerMovementType2>();
+            playerToDie.BirdDied();
         }
     }
 
     private void DecreaseHunger()
     {
         iCurrentChickHunger -= iHungerDecreaseRate;
+        GameManager.SetHungerScore(iCurrentChickHunger);
     }
     public void IncreaseHungerBar(int _iAmount)
     {
         iCurrentChickHunger += (_iAmount * iScoreTimesAmount);
         iCurrentChickHunger = (int)Mathf.Clamp(iCurrentChickHunger, 0.0f, 100.0f);
+        GameManager.SetHungerScore(iCurrentChickHunger);
+
         if (0 < _iAmount)
         {
             particleFeed.Play();

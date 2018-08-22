@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4709131082943862}
   - component: {fileID: 33158509059398734}
   - component: {fileID: 23427479348657076}
+  - component: {fileID: 136440301093872580}
   m_Layer: 0
   m_Name: LargeFlatRockB
   m_TagString: Untagged
@@ -34,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192982145881424}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.24194106, y: -0, z: -0, w: 0.970291}
+  m_LocalPosition: {x: -10.160651, y: -0.92811155, z: 2.2702727}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -28.002, y: 0, z: 0}
 --- !u!23 &23427479348657076
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +84,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192982145881424}
   m_Mesh: {fileID: 4300000, guid: 42da1a7f497f9644186ef193a1d12459, type: 3}
+--- !u!136 &136440301093872580
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192982145881424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 19.88
+  m_Height: 67.9
+  m_Direction: 1
+  m_Center: {x: -2, y: -15.25, z: -1.17}

@@ -11,6 +11,9 @@ TagManager:
   - BubbleParticles
   - Barrier
   - Nest
+  - ChickHunger
+  - GameManager
+  - KingfisherModel
   layers:
   - Default
   - TransparentFX

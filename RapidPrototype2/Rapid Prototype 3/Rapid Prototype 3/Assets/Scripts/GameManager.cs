@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     static private int m_Score = 0;
     static private int m_TotalScore = 0;
+    static private int m_iHungerScore = 100;
+
     private void Awake()
     {
         if(instance == null)
@@ -130,6 +132,15 @@ public class GameManager : MonoBehaviour {
     static public int GetTotalScore()
     {
         return (m_TotalScore);
+    }
+
+    static public void SetHungerScore(int _iScore)
+    {
+        m_iHungerScore = _iScore;
+    }
+    static public int GetHungerScore()
+    {
+        return (m_iHungerScore);
     }
 
     static public void GameOver()
