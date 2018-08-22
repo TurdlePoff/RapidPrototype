@@ -11,13 +11,15 @@ public class TimerandBirdThoughts : MonoBehaviour
     public Slider ChickHunger;
     public int iScoreTimesAmount = 5;
     public Image hungerFlash;
-    public Image hungerBorder;
+    public Image Border;
+    public Color hungerBorderColor;
 
     public float flashSpeed = 5f;
     public Color flashColour;
     public float flashCooldown = 1f;
     public float flashCooldownSpeed = 1f;
     public AudioSource chickCalling;
+    public ParticleSystem particleFeed;
 
     private int iCurrentChickHunger;
     private int iCurrentThought;
@@ -96,6 +98,17 @@ public class TimerandBirdThoughts : MonoBehaviour
             // ... transition the colour back to clear.
             hungerFlash.color = Color.Lerp(hungerFlash.color, Color.clear, flashSpeed * Time.deltaTime);
         }
+
+        if (iCurrentChickHunger < 20)
+        {
+            Border.color = Color.Lerp(Border.color, hungerBorderColor, Time.deltaTime);
+        }
+        else
+        {
+            Border.color = Color.Lerp(Border.color, Color.clear, Time.deltaTime);
+        }
+
+        
         if (0 >= iCurrentChickHunger)
         {
             GameManager.GameOver();
@@ -110,5 +123,9 @@ public class TimerandBirdThoughts : MonoBehaviour
     {
         iCurrentChickHunger += (_iAmount * iScoreTimesAmount);
         iCurrentChickHunger = (int)Mathf.Clamp(iCurrentChickHunger, 0.0f, 100.0f);
+        if (0 < _iAmount)
+        {
+            particleFeed.Play();
+        }
     }
 }

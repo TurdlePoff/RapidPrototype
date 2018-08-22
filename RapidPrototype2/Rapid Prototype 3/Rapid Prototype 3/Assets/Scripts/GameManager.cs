@@ -62,16 +62,19 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    static private void FishRespawner()
+    private void FishRespawner()
     {
-        GameObject[] fish;
-        fish = GlobalFlock.allFish;
-
-        foreach (GameObject go in fish)
+        if (SceneManager.GetActiveScene().name != "EndScreen")
         {
-            if(!go.activeSelf)
+            GameObject[] fish;
+            fish = GlobalFlock.allFish;
+
+            foreach (GameObject go in fish)
             {
-                go.SetActive(true);
+                if (!go.activeSelf)
+                {
+                    go.SetActive(true);
+                }
             }
         }
     }

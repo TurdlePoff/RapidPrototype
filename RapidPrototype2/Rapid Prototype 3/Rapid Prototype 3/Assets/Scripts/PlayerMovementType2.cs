@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovementType2 : MonoBehaviour
 {
-
     public float defaultSpeed = 20.0f;
     public float speed = 10f;
     public float turnSpeed = 50.0f;
@@ -13,10 +12,13 @@ public class PlayerMovementType2 : MonoBehaviour
     public float minHeight = -20f;
     public float heightIncrease = 0.5f;
 
+    public float fCurrentVelocity = 1f;
+
     public ParticleSystem particles;
 
     public AudioSource wind;
     public AudioSource splash;
+    public AudioSource exitSplash;
 
     private bool bPlayedPaticles = false;
 
@@ -72,12 +74,26 @@ public class PlayerMovementType2 : MonoBehaviour
                 rb.transform.Translate(Vector3.forward * -15f * Time.deltaTime);
                 // anim.SetBool("InWater", true);
                 anim.SetBool("Swimming", true);
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    fCurrentVelocity = Mathf.Clamp(fCurrentVelocity - 1.0f * Time.deltaTime, 1, 30);
+                }
+                else
+                {
+                    fCurrentVelocity = Mathf.Clamp(fCurrentVelocity - 1.5f * Time.deltaTime, 1, 30);
+                }
             }
             else
             {
                 //anim.SetBool("InWater", false);
                 anim.SetBool("Swimming", false);
-                bPlayedPaticles = false;
+                if(bPlayedPaticles)
+                {
+                    exitSplash.Play();
+                    particles.Play();
+                    bPlayedPaticles = false;
+                }
             }
 
             if (Input.GetKey(KeyCode.W))
@@ -126,12 +142,28 @@ public class PlayerMovementType2 : MonoBehaviour
             {
                 anim.SetBool("FlyingDown", true);
                 anim.SetBool("FlyingUp", false);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    fCurrentVelocity += 0.5f * Time.deltaTime;
+                }
+                else
+                {
+                    fCurrentVelocity += 0.25f * Time.deltaTime;
+                }
             }
             /* Flying Upwards */
             else if (transform.position.y > -15f && transform.localEulerAngles.x > 275f && transform.localEulerAngles.x < 300f)
             {
                 anim.SetBool("FlyingUp", true);
                 anim.SetBool("FlyingDown", false);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    fCurrentVelocity = Mathf.Clamp(fCurrentVelocity - 0.1f * Time.deltaTime, 1, 30);
+                }
+                else
+                {
+                    fCurrentVelocity = Mathf.Clamp(fCurrentVelocity - 0.25f * Time.deltaTime, 1, 30);
+                }
             }
             /* Gliding */
             else if (transform.position.y > -15f && !Input.GetKey(KeyCode.LeftShift))
@@ -202,7 +234,8 @@ public class PlayerMovementType2 : MonoBehaviour
                 //wind.Stop();
             }
 
-            rb.transform.Translate(Vector3.forward * defaultSpeed * Time.deltaTime);
+            rb.transform.Translate(Vector3.forward * defaultSpeed * Time.deltaTime * fCurrentVelocity);
+           // Debug.Log("fCurrentVelocity = " + fCurrentVelocity);
 
             if (cam.transform.position.y < water.transform.position.y)
             {
@@ -273,7 +306,6 @@ public class PlayerMovementType2 : MonoBehaviour
             {
                 if (x.tag == "WindParticles" && !x.isPlaying)
                 {
-                    Debug.Log("Particle: " + x.tag);
                     x.Play();
                 }
             }
@@ -286,7 +318,6 @@ public class PlayerMovementType2 : MonoBehaviour
             {
                 if (x.tag == "WindParticles" && x.isPlaying)
                 {
-                    Debug.Log("Particle: " + x.tag);
                     x.Stop();
                 }
             }

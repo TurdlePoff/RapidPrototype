@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 348886298}
   - component: {fileID: 348886297}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1623,7 +1623,7 @@ GameObject:
   - component: {fileID: 1146576529}
   - component: {fileID: 1146576528}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2525,6 +2525,7 @@ GameObject:
   - component: {fileID: 2026550420}
   - component: {fileID: 2026550422}
   - component: {fileID: 2026550421}
+  - component: {fileID: 2026550423}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2587,6 +2588,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2026550419}
   m_CullTransparentMesh: 0
+--- !u!114 &2026550423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026550419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c79f6dd942583445be52c41461a54a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1673261894}
+  selectedObject: {fileID: 2057172819}
 --- !u!1 &2057172819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,7 +2613,7 @@ GameObject:
   - component: {fileID: 2057172822}
   - component: {fileID: 2057172821}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

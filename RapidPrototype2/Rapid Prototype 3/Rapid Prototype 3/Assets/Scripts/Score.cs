@@ -9,13 +9,17 @@ public class Score : MonoBehaviour {
     public Slider oxygenSlider;
     public Image oxygenImage;
     public ParticleSystem particles;
+    public ParticleSystem particlesBird;
     public int oxygenDecreaseAmount = 5;
+    public AudioSource fish;
 
     public Image healthFlash;
     public float flashSpeed = 5f;
     public Color flashColour;
     public float flashCooldown = 1f;
     public float flashCooldownSpeed = 1f;
+    public Image Border;
+    public Color OxygenDefaultColour;
 
     // Update is called once per frame
     void Update ()
@@ -58,7 +62,16 @@ public class Score : MonoBehaviour {
         {
             GameManager.GameOver();
         }
-	}
+
+        if(oxygenSlider.value < 30)
+        {
+            Border.color = Color.Lerp(Border.color, OxygenDefaultColour, Time.deltaTime);
+        }
+        else
+        {
+            Border.color = Color.Lerp(Border.color, Color.clear, Time.deltaTime);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -66,6 +79,8 @@ public class Score : MonoBehaviour {
         {
             particles.transform.position = other.transform.position;
             particles.Play();
+            particlesBird.Play();
+            fish.Play();
             GameManager.IncreaseScore();
             //other.gameObject.SetActive(false);
             Invoke("HideObject", 0.25f);
