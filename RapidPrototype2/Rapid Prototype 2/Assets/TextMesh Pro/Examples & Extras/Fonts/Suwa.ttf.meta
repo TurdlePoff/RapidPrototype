@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 61cc3c0e84981e3459ab8fe814020c4a
+timeCreated: 1533693762
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Suwa
+  fontNames:
+  - Suwa
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
