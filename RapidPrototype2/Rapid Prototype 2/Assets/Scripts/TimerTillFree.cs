@@ -13,6 +13,8 @@ public class TimerTillFree : MonoBehaviour
     public TextMeshProUGUI mainTimer;
     public TextMeshProUGUI monsterTalking;
     public TextMeshProUGUI notesAmountText;
+    public TextMeshProUGUI monsterHungerVal;
+
     public AudioSource eating;
     public AudioSource music;
 
@@ -23,6 +25,14 @@ public class TimerTillFree : MonoBehaviour
 
     private int timeTillEscape;
     private int timeTillMonsterEatsYou;
+    private int timeVeryWell;
+    private int timeOtherwise;
+    private int timeOtherwiseKey;
+    private int timeStartFin;
+
+    private int timeLeaving;
+
+    private bool isDeadlineSoon;
     private bool tutorial;
     private bool endGame;
 
@@ -42,8 +52,8 @@ public class TimerTillFree : MonoBehaviour
 
         mainTimer.text = "";
         monsterTalking.text = "";
-        notesAmountText.text = "0";
-
+        notesAmountText.text = "";
+        monsterHungerVal.text = "";
         tutorial = true;
 
         directionalLight = GameObject.FindGameObjectWithTag("MainLight");
@@ -67,7 +77,7 @@ public class TimerTillFree : MonoBehaviour
         {
             mainTimer.text = "Assignment Due In: " + (timeTillEscape + 60).ToString() + "s";
             notesAmountText.text = GameManager.GetNoteCount().ToString();
-
+            monsterHungerVal.text = "Monster's Hunger Level: " + (timeTillMonsterEatsYou).ToString() + "s";
             for (int i = 0; i < houseLights.Length; ++i)
             {
                 Light light = houseLights[i].GetComponent<Light>();
@@ -104,9 +114,11 @@ public class TimerTillFree : MonoBehaviour
             music.Play();
 
             eating.Play();
-            Destroy(tutorialWalls.gameObject);
+            //Destroy(tutorialWalls.gameObject);
+            tutorialWalls.gameObject.SetActive(false);
             tutorial = false;
-            monsterTalking.text = "NOW FEED ME MORE";
+            monsterTalking.text = "SO YOU WANT TO RESEARCH ME...";
+            timeVeryWell = timeTillMonsterEatsYou - 3;
             InvokeRepeating("DecreaseTimeBy1", 1f, 1f);  //1s delay, repeat every 1s
 
             if (null != directionalLight)
@@ -137,6 +149,31 @@ public class TimerTillFree : MonoBehaviour
         timeTillEscape -= 1;
         timeTillMonsterEatsYou -= 1;
 
+        if(timeVeryWell == timeTillMonsterEatsYou)
+        {
+            monsterTalking.text = "VERY WELL, BUT YOU MUST FEED ME";
+            timeOtherwise = timeVeryWell - 3;
+            timeVeryWell = -20;
+        }
+        if(timeOtherwise == timeTillMonsterEatsYou)
+        {
+            monsterTalking.text = "OR I WILL EAT YOU";
+            timeOtherwiseKey = timeOtherwise - 2;
+            timeOtherwise = -20;
+        }
+        if (timeOtherwiseKey == timeTillMonsterEatsYou)
+        {
+            monsterTalking.text = "I WILL GIVE YOU A KEY WHEN YOUR DEADLINE IS CLOSE";
+            timeStartFin = timeOtherwiseKey - 3;
+            timeOtherwiseKey = -20;
+        }
+
+        if(timeStartFin == timeTillMonsterEatsYou)
+        {
+            monsterTalking.text = "";
+            timeStartFin = -20;
+        }
+
         if (timeTillEscape == OverallTime - 5 || timeTillEscape == -5)
         {
             monsterTalking.text = "";
@@ -150,10 +187,47 @@ public class TimerTillFree : MonoBehaviour
             timerMonsterHunger = Time.time + 60;
             key.SetActive(true);
             monsterLightColor = new Color32(255, 255, 255, 255);
-
+            timeLeaving = timeTillMonsterEatsYou - 3;
+            isDeadlineSoon = true;
             Light overallLight = directionalLight.GetComponent<Light>();
             overallLight.color = new Color32(255, 224, 214, 255);
             endGame = true;
+        }
+        else if (timeTillMonsterEatsYou == 30 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "I'M SO HUNGRY...\n FEED ME";
+        }
+        else if(timeTillMonsterEatsYou == 25 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "";
+        }
+        else if (timeTillMonsterEatsYou == 10 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "YOU HAVE 10 SECONDS TO FEED ME";
+        }
+        else if (timeTillMonsterEatsYou == 8 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "";
+        }
+        else if (timeTillMonsterEatsYou == 4 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "YOU DID'NT FEED ME";
+        }
+        else if (timeTillMonsterEatsYou == 2 && !isDeadlineSoon)
+        {
+            monsterTalking.text = "AND THEREFORE YOU SHALL BECOME MY FOOD";
+        }
+        else if (timeLeaving == timeTillMonsterEatsYou && isDeadlineSoon)
+        {
+            monsterTalking.text = "...UNLESS YOU WANT TO STAY";
+        }
+        else if (10 == timeTillMonsterEatsYou && isDeadlineSoon)
+        {
+            monsterTalking.text = "OH? SOMEONE DOESNT WANT TO LEAVE?";
+        }
+        else if (3 == timeTillMonsterEatsYou && isDeadlineSoon)
+        {
+            monsterTalking.text = "YOU WILL NEVER LEAVE AGAIN...\nM Y  F R I E N D";
         }
         else if (timeTillEscape == -60)
         {

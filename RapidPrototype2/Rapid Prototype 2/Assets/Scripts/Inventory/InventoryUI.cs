@@ -44,7 +44,11 @@ public class InventoryUI : MonoBehaviour {
 
     void UpdateUI()
     {
-        for(int i = 0; i < slots.Length; i++)
+        //if(GameManager.GetIsEnd())
+        //{
+        //   //this.slots = GameManager.storedSlots;
+        //}
+        for (int i = 0; i < slots.Length; i++)
         {
 
             if (i < inventory.items.Count)
@@ -56,6 +60,7 @@ public class InventoryUI : MonoBehaviour {
                 slots[i].ClearSlot();
             }
         }
+        //GameManager.storedSlots = this.slots;
         //Debug.Log("UPDATING INVENTORY");
     }
 

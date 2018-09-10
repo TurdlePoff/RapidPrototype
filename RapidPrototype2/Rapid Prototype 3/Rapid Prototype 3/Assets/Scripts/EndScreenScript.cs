@@ -13,6 +13,7 @@ public class EndScreenScript : MonoBehaviour {
 
     public void RestartGame()
     {
+        GameManager.ClearScore();
         SceneManager.LoadScene("GamePlay");
     }
 

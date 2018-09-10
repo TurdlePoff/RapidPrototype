@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Note5
   m_EditorClassIdentifier: 
   name: Note5
-  description: "Diary Entry #?? \n\nI made a friend today \n\nThey don't know their
-    my friend \n\nThey are bringing me food \n\nSo much food"
+  description: "Diary Entry #?? \n\nI made a friend today. \n\nThey don't know they
+    are my friend. \n\nIt seems they are lonely too.\n\nThey are bringing me food.
+    \n\nSo much food."
   icon: {fileID: 21300000, guid: 92e03c668afb57a4f95a615c103dde74, type: 3}
   isDefault: 0

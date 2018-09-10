@@ -15,8 +15,10 @@ public class InventorySlot : MonoBehaviour {
 
     public void ClearSlot()
     {
-        item = null;
-        icon.sprite = null;
+        if(item != null)
+            item = null;
+        if(icon.sprite != null)
+            icon.sprite = null;
         icon.enabled = false;
     }
 

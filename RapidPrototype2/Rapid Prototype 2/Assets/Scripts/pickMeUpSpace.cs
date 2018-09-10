@@ -11,7 +11,8 @@ public class pickMeUpSpace : MonoBehaviour
 
     private void Start()
     {
-        pickMeUp.enabled = false;
+        if(pickMeUp != null)
+            pickMeUp.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

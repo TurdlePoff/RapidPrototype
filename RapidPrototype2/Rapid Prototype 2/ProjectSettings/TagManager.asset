@@ -36,6 +36,8 @@ TagManager:
   - PickUpApple
   - PickedUpApple
   - pickUpNote1
+  - TutorialWall
+  - GateLock
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,12 @@ public class MenuScreen : MonoBehaviour
 {
     public GameObject MainMenuUI;
     public GameObject HelpMenuUI;
+    public GameObject CreditsMenuUI;
+
+    public void Start()
+    {
+        GameManager.SetInMenu(true);
+    }
 
     public void PlayGame()
     {
@@ -17,10 +23,17 @@ public class MenuScreen : MonoBehaviour
     {
         MainMenuUI.SetActive(true);
         HelpMenuUI.SetActive(false);
+        CreditsMenuUI.SetActive(false);
     }
     public void LoadHelpMenu()
     {
         HelpMenuUI.SetActive(true);
+        MainMenuUI.SetActive(false);
+    }
+
+    public void LoadCreditsMenu()
+    {
+        CreditsMenuUI.SetActive(true);
         MainMenuUI.SetActive(false);
     }
 

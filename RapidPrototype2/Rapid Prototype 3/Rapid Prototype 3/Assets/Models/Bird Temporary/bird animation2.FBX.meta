@@ -400,8 +400,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Bird_FloatingOnWater
       takeName: Take 001
-      firstFrame: 155
-      lastFrame: 185
+      firstFrame: 165
+      lastFrame: 178
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

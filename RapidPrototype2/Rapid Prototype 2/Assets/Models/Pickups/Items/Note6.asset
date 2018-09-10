@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Note6
   m_EditorClassIdentifier: 
   name: Note6
-  description: "Diary Entry #?? \n\nI met someone today \n\nI haven't seen a living
-    soul in months \n\nThey didn't see me \n\nBut that's ok"
+  description: "Diary Entry #?? \n\nI met a person today.\n\nI haven't seen a living
+    soul in months. \n\nThey didn't see me. \n\nBut that's ok."
   icon: {fileID: 21300000, guid: 92e03c668afb57a4f95a615c103dde74, type: 3}
   isDefault: 0

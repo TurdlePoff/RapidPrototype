@@ -6,6 +6,8 @@ using UnityEngine;
 public class Item : ScriptableObject {
 
     new public string name = "New Item";
+
+    [TextArea]
     public string description = "Note content";
     public Sprite icon = null;
     public bool isDefault = false;

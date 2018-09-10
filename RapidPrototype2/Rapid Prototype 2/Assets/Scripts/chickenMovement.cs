@@ -10,7 +10,7 @@ public class chickenMovement : MonoBehaviour
     public float range = 5f;
     public float multiplier = 2f;
     public float distanceFromBob = 2f;
-    public Animator anim;
+    private Animator anim;
 
     private TimerTillFree timer;
     private bool inBobRadius;
@@ -32,6 +32,8 @@ public class chickenMovement : MonoBehaviour
         }
 
         inBobRadius = false;
+
+        anim = transform.GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -65,11 +67,13 @@ public class chickenMovement : MonoBehaviour
 
         if (nav.velocity != test)
         {
-            anim.SetBool("isMoving", true);
+            if(anim != null)
+                anim.SetBool("isMoving", true);
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            if (anim != null)
+                anim.SetBool("isMoving", false);
         }
     }
 

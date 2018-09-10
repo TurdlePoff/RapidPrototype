@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Note2
   m_EditorClassIdentifier: 
   name: Note2
-  description: 'Diary Entry #?? \n\nI''m so cold \n\nSo cold  \n\nMy only company
-    are the birds outside \n\nAt least they can''t get me'
+  description: "Diary Entry #?? \n\nI'm so cold... \n\nSo cold...  \n\nMy only company
+    are the birds outside. \n\nAt least THEY can't get me."
   icon: {fileID: 21300000, guid: 92e03c668afb57a4f95a615c103dde74, type: 3}
   isDefault: 0

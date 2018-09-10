@@ -21,7 +21,9 @@ public class ItemPickup : Interactable {
         {
             GameManager.IncreaseNotes();
             Destroy(gameObject);
-            Destroy(GameObject.FindGameObjectWithTag("pickUpNote1").gameObject);
+
+            if(GameObject.FindGameObjectWithTag("pickUpNote1") != null)
+                Destroy(GameObject.FindGameObjectWithTag("pickUpNote1").gameObject);
 
         }
     }

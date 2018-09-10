@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour {
     }
     static public void ClearScore()
     {
+        m_iHungerScore = 100;
         m_Score = 0;
     }
     static public int GetTotalScore()

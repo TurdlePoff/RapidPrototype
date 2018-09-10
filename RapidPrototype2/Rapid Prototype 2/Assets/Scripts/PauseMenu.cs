@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour {
     
     public GameObject pauseMenuUI;
     public GameObject backpackUI;
+    public GameObject controlsUI;
+    private bool m_isInControls = false;
 
     // Update is called once per frame
     void Update ()
@@ -15,7 +17,8 @@ public class PauseMenu : MonoBehaviour {
         {
             if(GameManager.IsGamePaused())
             {
-                Resume();
+                if (!m_isInControls)
+                    Resume();
             }
             else
             {
@@ -42,13 +45,21 @@ public class PauseMenu : MonoBehaviour {
         SceneManager.LoadScene("MenuScreen");
     }
 
-    //public void LoadBackpack()
-    //{
-    //    Debug.Log("Loading Backpack");
-    //    backpackUI.SetActive(true);
-    //    inBackpackMode = true;
-    //    //GameManager.SetInInventory(true);
-    //}
+    public void LoadControls()
+    {
+        Debug.Log("Loading Backpack");
+        controlsUI.SetActive(true);
+        m_isInControls = true;
+        //GameManager.SetInInventory(true);
+    }
+
+    public void CloseControls()
+    {
+        Debug.Log("Loading Backpack");
+        controlsUI.SetActive(false);
+        m_isInControls = false;
+        //GameManager.SetInInventory(true);
+    }
 
     public void CloseBackpack()
     {

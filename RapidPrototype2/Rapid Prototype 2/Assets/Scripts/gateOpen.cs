@@ -17,17 +17,18 @@ public class gateOpen : MonoBehaviour
     {
         if(other.tag == "PickUpKey")
         {
-            other.gameObject.SetActive(false);
+            // other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             for(int i = 0; i < gates.Length; ++i)
             {
                 GameObject gate = gates[i];
                 if(0 == i)
                 {
-                    gate.transform.Rotate(0f, -90, 0f);
+                    gate.transform.Rotate(0f, 90, 0f);
                 }
                 else
                 {
-                    gate.transform.Rotate(0f, 90, 0f);
+                    gate.transform.Rotate(0f, -90, 0f);
                 }
             }
             gateLock.gameObject.SetActive(false);

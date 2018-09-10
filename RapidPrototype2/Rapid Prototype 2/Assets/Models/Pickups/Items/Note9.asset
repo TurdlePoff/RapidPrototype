@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Note9
   m_EditorClassIdentifier: 
   name: Note9
-  description: "Diary Entry #?? \n\nThe hunger is unbearable \n\nI can't leave here
-    \n\nNo one can enter here \n\nI don't feel in control \n\nThoughts blur and merge"
+  description: "Diary Entry #?? \n\nThe hunger is unbearable. \n\nI can't leave here.
+    \n\nNo one can enter here. \n\nI don't feel in control. \n\nThoughts blur and
+    merge."
   icon: {fileID: 21300000, guid: 92e03c668afb57a4f95a615c103dde74, type: 3}
   isDefault: 0

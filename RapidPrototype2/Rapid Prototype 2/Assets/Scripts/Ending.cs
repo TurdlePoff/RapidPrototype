@@ -11,6 +11,7 @@ public class Ending : MonoBehaviour
     public Sprite[] GradeImages;
     public Text notesScore;
     public GameObject Note;
+    //public GameObject inventoryUI;
 
     private int EndingLevelToLoad;
     private Image grade;
@@ -102,6 +103,7 @@ public class Ending : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {
+            GameManager.ResetMainMenu();
             SceneManager.LoadScene("MenuScreen");
         }
         else if(Input.GetKeyDown(KeyCode.Escape))
@@ -109,5 +111,20 @@ public class Ending : MonoBehaviour
             Debug.Log("Quitting Game");
             Application.Quit();
         }
+        //else if (Input.GetButtonDown("Inventory"))
+        //{
+        //    if (!inventoryUI.activeSelf)
+        //    {
+        //        inventoryUI.SetActive(true);
+        //        GameManager.SetInInventory(true);
+        //        Debug.Log("Loading Backpack");
+        //    }
+        //    else
+        //    {
+        //        inventoryUI.SetActive(false);
+        //        GameManager.SetInInventory(false);
+        //        Debug.Log("Closing Backpack");
+        //    }
+        //}
     }
 }

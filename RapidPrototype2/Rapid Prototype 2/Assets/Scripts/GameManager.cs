@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
-
     static private bool m_gameIsPaused = false;
     static private bool m_inInventory = false;
     static private bool m_inMainMenu = false;
@@ -14,9 +13,12 @@ public class GameManager : MonoBehaviour {
     static private bool m_bEscaped = false;
     static private bool m_LoadedFinalLevel = false;
     static private bool m_noteOpen = false;
+    static private bool m_assignmentOpen = true;
+    static private bool m_isEnding = false;
 
     static private int m_NotesCollected;
     static private int m_iTotalNotes;
+    //static public InventorySlot[] storedSlots;
 
     private void Awake()
     {
@@ -38,11 +40,10 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         //Time pause code
-        if(m_gameIsPaused || m_inInventory)
+        if(m_gameIsPaused || m_inInventory || m_assignmentOpen)
         {
             Time.timeScale = 0.0f;
             m_stopTime = true;
-
         }
         else
         {
@@ -53,8 +54,8 @@ public class GameManager : MonoBehaviour {
         //Ending game code
         if(SceneManager.GetActiveScene().name == "MenuScreen")
         {
-            m_inMainMenu = true;
-               m_LoadedFinalLevel = false;
+            ResetMainMenu();
+            m_NotesCollected = 0;
         }
         else if(SceneManager.GetActiveScene().name == "Main")
         {
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour {
                         Debug.Log("Player escaped");
                     }
                     m_LoadedFinalLevel = true;
+                    m_NotesCollected = 0;
                 }
             }
             else
@@ -120,10 +122,21 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-
+    
     static public GameManager GetInstance()
     {
         return instance;
+    }
+
+    static public void ResetMainMenu()
+    {
+        m_inMainMenu = true;
+        m_LoadedFinalLevel = false;
+        m_gameIsPaused = false;
+        m_inInventory = false;
+        m_stopTime = false;
+        m_noteOpen = false;
+        m_isEnding = false;
     }
 
     static public void SetGamePaused(bool paused)
@@ -168,6 +181,16 @@ public class GameManager : MonoBehaviour {
         return m_noteOpen;
     }
 
+    static public void SetAssignmentOpen(bool accessed)
+    {
+        m_assignmentOpen = accessed;
+    }
+
+    static public bool GetAssignmentOpen()
+    {
+        return m_assignmentOpen;
+    }
+
     static public bool GetIsTimeStopped()
     {
         return m_stopTime;
@@ -176,7 +199,13 @@ public class GameManager : MonoBehaviour {
     static public void GameOver(bool _bEscaped)
     {
         m_bEscaped = _bEscaped;
+        m_isEnding = true;
         SceneManager.LoadScene("EndScreen");
+    }
+
+    static public bool GetIsEnd()
+    {
+        return m_isEnding;
     }
 
     static public void IncreaseNotes()

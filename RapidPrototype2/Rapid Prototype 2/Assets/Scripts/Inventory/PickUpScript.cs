@@ -33,7 +33,7 @@ public class PickUpScript : MonoBehaviour
     GameObject onCameraApple;
 
     bool holdingSomething;
-
+    bool m_wallInfront;
     private GameObject test;
 
     EPickups holding;
@@ -207,106 +207,117 @@ public class PickUpScript : MonoBehaviour
             }
             else
             {
-                switch (holding)
+                if (!m_wallInfront)
                 {
-                    case EPickups.ECUBE:
-                        {
-                            if (null != onCameraCube)
+
+                    switch (holding)
+                    {
+                        case EPickups.ECUBE:
                             {
-                                onCameraCube.SetActive(false);
+                                if (null != onCameraCube)
+                                {
+                                    onCameraCube.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EBOTTLE:
-                        {
-                            if (null != onCameraBottle)
+                        case EPickups.EBOTTLE:
                             {
-                                onCameraBottle.SetActive(false);
+                                if (null != onCameraBottle)
+                                {
+                                    onCameraBottle.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.ECHICKEN:
-                        {
-                            if (null != onCameraChicken)
+                        case EPickups.ECHICKEN:
                             {
-                                onCameraChicken.SetActive(false);
+                                if (null != onCameraChicken)
+                                {
+                                    onCameraChicken.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EBANANA:
-                        {
-                            if (null != onCameraBanana)
+                        case EPickups.EBANANA:
                             {
-                                onCameraBanana.SetActive(false);
+                                if (null != onCameraBanana)
+                                {
+                                    onCameraBanana.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EEGG:
-                        {
-                            if (null != onCameraEgg)
+                        case EPickups.EEGG:
                             {
-                                onCameraEgg.SetActive(false);
+                                if (null != onCameraEgg)
+                                {
+                                    onCameraEgg.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.ESTEAK:
-                        {
-                            if (null != onCameraSteak)
+                        case EPickups.ESTEAK:
                             {
-                                onCameraSteak.SetActive(false);
+                                if (null != onCameraSteak)
+                                {
+                                    onCameraSteak.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EKEY:
-                        {
-                            if (null != onCameraKey)
+                        case EPickups.EKEY:
                             {
-                                onCameraKey.SetActive(false);
+                                if (null != onCameraKey)
+                                {
+                                    onCameraKey.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EHAM:
-                        {
-                            if (null != onCameraHam)
+                        case EPickups.EHAM:
                             {
-                                onCameraHam.SetActive(false);
+                                if (null != onCameraHam)
+                                {
+                                    onCameraHam.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.ESANDWITCH:
-                        {
-                            if (null != onCameraSandwitch)
+                        case EPickups.ESANDWITCH:
                             {
-                                onCameraSandwitch.SetActive(false);
+                                if (null != onCameraSandwitch)
+                                {
+                                    onCameraSandwitch.SetActive(false);
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case EPickups.EAPPLE:
-                        {
-                            if (null != onCameraApple)
+                        case EPickups.EAPPLE:
                             {
-                                onCameraApple.SetActive(false);
+                                if (null != onCameraApple)
+                                {
+                                    onCameraApple.SetActive(false);
+                                }
+                                break;
                             }
+                        default:
                             break;
-                        }
-                    default:
-                        break;
+                    }
                 }
 
                 if (holding != EPickups.ENONE)
                 {
                     test.gameObject.SetActive(true);
+                    
                     test.transform.position = transform.position + (transform.forward * distanceInfront);
                     test.transform.rotation = transform.rotation;
 
                     holding = EPickups.ENONE;
                     holdingSomething = false;
+                    test = null;
                 }
             }
         }
     }
     void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "TutorialWall")
+        {
+            m_wallInfront = true;
+        }
+
         if (!holdingSomething)
         {
             if (other.tag == "PickUpKey")
@@ -354,6 +365,11 @@ public class PickUpScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag == "TutorialWall")
+        {
+            m_wallInfront = false;
+        }
+
         // Somehow stop players from picking up if out of range of item
         if (!holdingSomething && null != test)
         {
